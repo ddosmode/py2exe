@@ -8,6 +8,7 @@ on:
       - '**/*.py'
       - '**/*.md'
       - '**/*.rst'
+      - '.github/workflows/translate-to-russian.yml'
   pull_request:
     branches: [master, main, develop]
     paths:
@@ -21,8 +22,7 @@ permissions:
 jobs:
   translate:
     name: Перевод docstrings и комментариев
-    # Пропускаем, если коммит содержит [skip ci] (наш собственный коммит)
-    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    if: ${{ !contains(github.event.head_commit.message || '', '[skip ci]') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,18 +36,14 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Установка зависимостей для перевода
+      - name: Установка зависимостей
         run: |
           pip install --upgrade pip
           pip install openai
-          pip install argostranslate || true
-          python3 scripts/setup_argostranslate.py || true
-          pip install deep_translator || true
-          pip install translatepy || true
+          pip install deep_translator
 
-      - name: Перевод Python файлов и документации
-        run: |
-          python3 scripts/translate_docs.py .
+      - name: Перевод файлов
+        run: python3 scripts/translate_docs.py .
 
       - name: Проверка изменений
         id: changes

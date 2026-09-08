@@ -32,7 +32,7 @@ def _init_github_models():
     if not token:
         raise ImportError("GITHUB_TOKEN не найден в env")
     from openai import OpenAI
-    client = OpenAI(api_key=token, base_url="https://models.github.ai/")
+    client = OpenAI(api_key=token, base_url="https://models.github.ai/", timeout=30.0)
 
     def _gh(text):
         if not text or not text.strip() or len(text) < 3:
@@ -55,7 +55,7 @@ def _init_openai():
     if not key:
         raise ImportError("OPENAI_API_KEY не найден в env")
     from openai import OpenAI
-    client = OpenAI(api_key=key)
+    client = OpenAI(api_key=key, timeout=30.0)
 
     def _oa(text):
         if not text or not text.strip() or len(text) < 3:
@@ -120,10 +120,11 @@ def _init_argostranslate():
 
 def _init_deep_translator():
     from deep_translator import GoogleTranslator
+    _t = GoogleTranslator(source='auto', target='ru', request_timeout=15)
 
     def _dt(text):
         try:
-            return GoogleTranslator(source='auto', target='ru').translate(text)
+            return _t.translate(text)
         except Exception:
             return text
     return _dt
