@@ -1,0 +1,4 @@
+[hooks]
+startup = ["python3 scripts/translate_docs.py ."]
+post-tool-call = ["python3 scripts/translate_docs_hook.py"]
+pre-tool-call = []

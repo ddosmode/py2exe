@@ -14,4 +14,5 @@ enabled_tests.txt
 !.travis.yml
 !.appveyor.yml
 !.github
+!.kilo
 __pycache__
