@@ -1,13 +1,19 @@
 name: Перевод документации и комментариев на русский
 
 on:
+  workflow_dispatch:
   push:
     branches: [master, main, develop]
-    paths-ignore:
-      - '**/*.yml'
-      - '**/*.yaml'
+    paths:
+      - '**/*.py'
+      - '**/*.md'
+      - '**/*.rst'
   pull_request:
     branches: [master, main, develop]
+    paths:
+      - '**/*.py'
+      - '**/*.md'
+      - '**/*.rst'
 
 permissions:
   contents: write
@@ -16,6 +22,8 @@ permissions:
 jobs:
   translate:
     name: Перевод docstrings и комментариев
+    # Пропускаем, если коммит содержит [skip ci] (наш собственный коммит)
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,12 +40,14 @@ jobs:
       - name: Установка зависимостей для перевода
         run: |
           pip install --upgrade pip
-          pip install deep_translator~=1.11
-          pip install googletrans==4.0.0rc1
+          pip install openai
+          pip install argostranslate || true
+          python3 scripts/setup_argostranslate.py || true
+          pip install deep_translator || true
+          pip install translatepy || true
 
       - name: Перевод Python файлов и документации
         run: |
-          python3 scripts/translate_docs.py --dry-run .
           python3 scripts/translate_docs.py .
 
       - name: Проверка изменений

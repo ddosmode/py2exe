@@ -9,7 +9,9 @@
 """
 
 import ast
+import functools
 import io
+import os
 import re
 import sys
 import tokenize
@@ -18,62 +20,188 @@ from pathlib import Path
 _translate_fn = None
 
 
-def get_translator():
-    """Возвращает функцию перевода, используя первый доступный переводчик."""
-    global _translate_fn
-    if _translate_fn is not None:
-        return _translate_fn
+@functools.lru_cache(maxsize=512)
+def translate_text(text):
+    """Переводит текст на русский язык. Результат кэшируется."""
+    fn = get_translator()
+    return fn(text)
 
-    try:
-        from googletrans import Translator
-        _t = Translator()
 
-        def _gt(text):
-            try:
-                return _t.translate(text, dest='ru').text
-            except Exception:
-                return text
-        _translate_fn = _gt
-        return _gt
-    except ImportError:
-        pass
+def _init_github_models():
+    token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+    if not token:
+        raise ImportError("GITHUB_TOKEN не найден в env")
+    from openai import OpenAI
+    client = OpenAI(api_key=token, base_url="https://models.github.ai/")
 
-    try:
-        from deep_translator import GoogleTranslator
+    def _gh(text):
+        if not text or not text.strip() or len(text) < 3:
+            return text
+        resp = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": "Переведи следующий текст на русский язык. Сохраняй технические детали, имена переменных, код и форматирование как есть. Переводи только содержимое."},
+                {"role": "user", "content": text},
+            ],
+            max_tokens=4000,
+            temperature=0.1,
+        )
+        return resp.choices[0].message.content.strip()
+    return _gh
 
-        def _dt(text):
-            try:
-                return GoogleTranslator(source='auto', target='ru').translate(text)
-            except Exception:
-                return text
-        _translate_fn = _dt
-        return _dt
-    except ImportError:
-        pass
 
-    try:
-        from translatepy import Translator as TPT
+def _init_openai():
+    key = os.environ.get("OPENAI_API_KEY")
+    if not key:
+        raise ImportError("OPENAI_API_KEY не найден в env")
+    from openai import OpenAI
+    client = OpenAI(api_key=key)
 
-        def _tp(text):
-            try:
-                return TPT().translate(text, 'ru').result
-            except Exception:
-                return text
-        _translate_fn = _tp
-        return _tp
-    except ImportError:
-        pass
+    def _oa(text):
+        if not text or not text.strip() or len(text) < 3:
+            return text
+        resp = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": "Переведи следующий текст на русский язык. Сохраняй технические детали, имена переменных, код и форматирование как есть."},
+                {"role": "user", "content": text},
+            ],
+            max_tokens=4000,
+            temperature=0.1,
+        )
+        return resp.choices[0].message.content.strip()
+    return _oa
+
+
+def _init_deepL():
+    key = os.environ.get("DEEPL_API_KEY")
+    if not key:
+        raise ImportError("DEEPL_API_KEY не найден в env")
+    import urllib.request
+    import urllib.parse
+    import json as _json
+
+    def _dl(text):
+        if not text or not text.strip() or len(text) < 3:
+            return text
+        data = urllib.parse.urlencode({
+            'auth_key': key,
+            'text': text,
+            'target_lang': 'RU',
+            'source_lang': 'EN',
+        }).encode('utf-8')
+        req = urllib.request.Request('https://api-free.deepl.com/v2/translate', data=data)
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            result = _json.loads(resp.read().decode())
+        return result['translations'][0]['text']
+    return _dl
+
+
+def _init_argostranslate():
+    import argostranslate.package
+    import argostranslate.translate
+
+    langs = argostranslate.translate.get_installed_languages()
+    if not any(l.code == 'ru' for l in langs) or not any(l.code == 'en' for l in langs):
+        raise ImportError("argostranslate: языки en/ru не установлены")
+
+    en = next(l for l in langs if l.code == 'en')
+    ru = next(l for l in langs if l.code == 'ru')
+    translation = en.get_translation(ru)
+    if not translation:
+        raise ImportError("argostranslate: перевод не найден")
+
+    def _argos(text):
+        if not text or not text.strip() or len(text) < 3:
+            return text
+        return translation.translate(text)
+    return _argos
+
+
+def _init_deep_translator():
+    from deep_translator import GoogleTranslator
+
+    def _dt(text):
+        try:
+            return GoogleTranslator(source='auto', target='ru').translate(text)
+        except Exception:
+            return text
+    return _dt
+
+
+def _init_googletrans():
+    from googletrans import Translator
+    _t = Translator()
+
+    def _gt(text):
+        try:
+            return _t.translate(text, dest='ru').text
+        except Exception:
+            return text
+    return _gt
+
+
+def _init_translatepy():
+    from translatepy import Translator as TPT
+
+    def _tp(text):
+        try:
+            return TPT().translate(text, 'ru').result
+        except Exception:
+            return text
+    return _tp
+
+
+def _get_translator_unlocked():
+    """Возвращает функцию перевода, используя первый работоспособный переводчик.
+
+    Порядок приоритета:
+    1. GitHub Models API (GITHUB_TOKEN) — для GitHub Actions
+    2. OpenAI API (OPENAI_API_KEY)
+    3. DeepL API (DEEPL_API_KEY)
+    4. argostranslate (офлайн)
+    5. deep_translator (Google Translate, fallback)
+    6. googletrans (fallback)
+    7. translatepy (fallback)
+    """
+    candidates = [
+        ('github-models', _init_github_models),
+        ('openai', _init_openai),
+        ('deepl', _init_deepL),
+        ('argostranslate', _init_argostranslate),
+        ('deep_translator', _init_deep_translator),
+        ('googletrans', _init_googletrans),
+        ('translatepy', _init_translatepy),
+    ]
+
+    for name, init_fn in candidates:
+        try:
+            fn = init_fn()
+            test = fn('Hello')
+            if test and test not in ('Hello', 'Приветствие'):
+                print(f'[переводчик] Использую: {name}', file=sys.stderr)
+                return fn
+        except Exception as e:
+            print(f'[переводчик] {name} недоступен: {e}', file=sys.stderr)
+            continue
+
+    print('[переводчик] Ни один переводчик не доступен', file=sys.stderr)
 
     def _noop(text):
         return text
-    _translate_fn = _noop
     return _noop
 
 
-def translate_text(text):
-    """Переводит текст на русский язык."""
-    fn = get_translator()
-    return fn(text)
+def get_translator():
+    global _translate_fn
+    if _translate_fn is None:
+        _translate_fn = _get_translator_unlocked()
+    return _translate_fn
+
+
+def init_translator():
+    """Принудительно инициализирует переводчик (вызывается при старте)."""
+    get_translator()
 
 
 def is_english(text):
@@ -325,6 +453,8 @@ def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
 
     target = Path(args[0]) if args else Path('.')
+
+    init_translator()
 
     py_files = []
     md_files = []

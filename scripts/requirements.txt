@@ -1,0 +1,4 @@
+openai>=1.0
+argostranslate>=0.22
+deep_translator>=1.11
+translatepy>=0.15
