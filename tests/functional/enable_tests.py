@@ -13,14 +13,14 @@ if sys.version_info >= (3, 10):
 if sys.version_info >= (3, 12):
     tests = [t for t in tests if 'bundlefiles' not in t]
 
-# temporarily disable _wxPython test
+# временно отключить тест _wxPython
 # https://github.com/wxWidgets/Phoenix/issues/2246
 try:
     tests.remove('_wxPython_test')
 except ValueError:
     pass
 
-# disable scipy tests on x86 (no wheels)
+# отключить scipy-тесты на x86 (без колес)
 is_64bits = sys.maxsize > 2**32
 if not is_64bits:
     try:

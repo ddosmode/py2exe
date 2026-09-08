@@ -1,4 +1,4 @@
-"""Find modules used by a script, using introspection."""
+"""Найдите модули, используемые сценарием, используя самоанализ."""
 """Latest update: CPython 3.10.0: 90549676e063c2c818cfc14213d3adb7edcc2bd5"""
 
 """
@@ -82,7 +82,7 @@ def ReplacePackage(oldname, newname):
 
 
 def _find_module(name, path=None):
-    """An importlib reimplementation of imp.find_module (for our purposes)."""
+"""Переопределение importlib модуляimp.find_module (для наших целей)."""
 
     # It's necessary to clear the caches for our Finder first, in case any
     # modules are being added/deleted/modified at runtime. In particular,
@@ -571,9 +571,8 @@ class ModuleFinder:
         return _find_module(name, path)
 
     def report(self):
-        """Print a report to stdout, listing the found modules with their
-        paths, as well as modules that are missing, or seem to be missing.
-        """
+"""Распечатайте отчет на стандартный вывод, перечислив найденные модули с указанием их номеров.
+        пути, а также модули, которые отсутствуют или кажутся отсутствующими."""
         print()
         print("  %-25s %s" % ("Name", "File"))
         print("  %-25s %s" % ("----", "----"))
@@ -605,22 +604,14 @@ class ModuleFinder:
                 print("?", name, "imported from", ', '.join(mods))
 
     def any_missing(self):
-        """Return a list of modules that appear to be missing. Use
-        any_missing_maybe() if you want to know which modules are
-        certain to be missing, and which *may* be missing.
-        """
+"""Вернуть список модулей, которые кажутся отсутствующими. Использование
+        Any_missing_maybe(), если вы хотите знать, какие модули
+        наверняка отсутствуют и которые *могут* отсутствовать."""
         missing, maybe = self.any_missing_maybe()
         return missing + maybe
 
     def any_missing_maybe(self):
-        """Return two lists, one with modules that are certainly missing
-        and one with modules that *may* be missing. The latter names could
-        either be submodules *or* just global names in the package.
-
-        The reason it can't always be determined is that it's impossible to
-        tell which names are imported when "from module import *" is done
-        with an extension module, short of actually importing it.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         missing = []
         maybe = []
         for name in self.badmodules:

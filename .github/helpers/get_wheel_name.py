@@ -5,12 +5,12 @@ from setuptools import Extension
 from setuptools.dist import Distribution
 
 def wheel_name(**kwargs):
-    # create a fake distribution from arguments
+    # создаем поддельное распределение из аргументов
     dist = Distribution(attrs=kwargs)
-    # finalize bdist_wheel command
+    # завершить команду bdist_wheel
     bdist_wheel_cmd = dist.get_command_obj('bdist_wheel')
     bdist_wheel_cmd.ensure_finalized()
-    # assemble wheel file name
+    # собираем имя файла колеса
     distname = bdist_wheel_cmd.wheel_dist_name
     tag = '-'.join(bdist_wheel_cmd.get_tag())
     return f'{distname}-{tag}.whl'

@@ -1,4 +1,4 @@
-#!/usr/bin/python3.3
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 import errno
 import os
 import shutil
@@ -6,28 +6,28 @@ import sys
 import tempfile
 import unittest
 
-##import modulefinder
+##импорт модуля поиска
 import py2exe.mf310 as modulefinder
 
 TEST_DIR = 'synthetic'
-TEST_PATH = [TEST_DIR]#, os.path.dirname(tempfile.__file__)]
+TEST_PATH = [TEST_DIR]Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 print("TEST_PATH is", TEST_PATH)
 
-# Each test description is a list of 5 items:
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 #
-# 1. a module name that will be imported by modulefinder
-# 2. a list of module names that modulefinder is required to find
-# 3. a list of module names that modulefinder should complain
-#    about because they are not found
-# 4. a list of module names that modulefinder should complain
-#    about because they MAY be not found
-# 5. a string specifying packages to create; the format is obvious imo.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 #
-# Each package will be created in TEST_DIR, and TEST_DIR will be
-# removed after the tests again.
-# Modulefinder searches in a path that contains TEST_DIR, plus
-# the standard Lib directory.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 maybe_test = [
     "a.module",
@@ -250,25 +250,25 @@ class ModuleFinderTest(unittest.TestCase):
         sys_path = sys.path[:]
         sys.path.insert(0, TEST_DIR)
         try:
-            mf = modulefinder.ModuleFinder()#path=TEST_PATH)
+            mf = modulefinder.ModuleFinder()Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
             mf.import_hook(import_this)
             if report:
                 mf.report()
-##                # This wouldn't work in general when executed several times:
-##                opath = sys.path[:]
-##                sys.path = TEST_PATH
-##                try:
-##                    __import__(import_this)
-##                except:
-##                    import traceback; traceback.print_exc()
-##                sys.path = opath
-##                return
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+## opath = sys.path[:]
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
             modules = sorted(set(modules))
             found = sorted(mf.modules)
-            # check if we found what we expected, not more, not less
+            Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
             self.assertEqual(found, modules)
 
-            # check for missing and maybe missing modules
+            Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
             bad, maybe = mf.any_missing_maybe()
             bad = sorted(bad)
             maybe = sorted(maybe)
@@ -278,41 +278,41 @@ class ModuleFinderTest(unittest.TestCase):
             sys.path = sys_path
             shutil.rmtree(TEST_DIR)
 
-    #@unittest.skip("test_package")
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     def test_package(self):
         self._do_test(package_test)
 
-    #@unittest.skip("test_namespace_package")
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     def test_namespace_package(self):
         self._do_test(namespace_package_test)
 
-    #@unittest.skip("test_maybe")
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     def test_maybe(self):
         self._do_test(maybe_test)
 
-    #@unittest.skip("test_maybe_new")
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     def test_maybe_new(self):
         self._do_test(maybe_test_new)
 
-    #@unittest.skip("test_absolute_imports")
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     def test_absolute_imports(self):
         self._do_test(absolute_import_test)
 
-    #@unittest.skip("test_relative_imports")
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     def test_relative_imports(self):
         self._do_test(relative_import_test)
 
-    #@unittest.skip("test_relative_imports_2")
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     def test_relative_imports_2(self):
         self._do_test(relative_import_test_2)
 
-    #@unittest.skip("test_relative_imports_3")
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     def test_relative_imports_3(self):
         self._do_test(relative_import_test_3)
 
 
-## def test_main():
-##     support.run_unittest(ModuleFinderTest)
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 if __name__ == "__main__":
     unittest.main()

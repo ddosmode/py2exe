@@ -1,4 +1,4 @@
-"""Minimal Windows service for testing py2exe compilation."""
+"""Минимальный сервис Windows для тестирования компиляции py2exe."""
 import win32serviceutil
 import win32service
 import win32event
@@ -6,7 +6,7 @@ import servicemanager
 import sys
 import os
 
-# Log file sits next to the exe (or next to this script during development)
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 _LOG_FILE = os.path.join(os.path.dirname(sys.executable if getattr(sys, "frozen", False) else __file__), "minimal_service.log")
 
 
@@ -36,7 +36,7 @@ class MinimalSvc(win32serviceutil.ServiceFramework):
             servicemanager.PYS_SERVICE_STARTED,
             (self._svc_name_, ""),
         )
-        # Wait until stop is signalled
+        # Подождите, пока не поступит сигнал остановки
         win32event.WaitForSingleObject(self.hWaitStop, win32event.INFINITE)
 
 

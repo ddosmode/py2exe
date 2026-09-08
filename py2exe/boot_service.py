@@ -54,21 +54,7 @@ if cmdline_style == "py2exe":
         pass
     
     def w_getopt(args, options):
-        """A getopt for Windows style command lines.
-    
-        Options may start with either '-' or '/', the option names may
-        have more than one letter (examples are /tlb or -RegServer), and
-        option names are case insensitive.
-    
-        Returns two elements, just as getopt.getopt.  The first is a list
-        of (option, value) pairs in the same way getopt.getopt does, but
-        there is no '-' or '/' prefix to the option name, and the option
-        name is always lower case.  The second is the list of arguments
-        which do not belong to any option.
-    
-        Different from getopt.getopt, a single argument not belonging to an option
-        does not terminate parsing.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         opts = []
         arguments = []
         while args:

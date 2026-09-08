@@ -1,6 +1,6 @@
 <!-- markdownlint-disable -->
 
-# <kbd>function</kbd> `freeze`
+# <kbd>функция</kbd> `freeze`
 
 ```python
 freeze(
@@ -14,76 +14,76 @@ freeze(
 )
 ```
 
-Create a frozen executable from the passed Python script(s). 
+Создайте замороженный исполняемый файл из переданных скриптов Python.
 
 
 
-**Arguments:**
+**Аргументы:**
  
- - <b>`console`</b> (list of dict):  paths of the Python files that will be frozen  as console (CLI) executables. See below for the target dict syntax. 
- - <b>`windows`</b> (list of dict):  paths of the Python files that will be frozen  as windows (GUI) executables. See below for the target dict syntax. 
- - <b>`service`</b> (list of dict):  module names and options for Windows service  executables. See below for the target dict syntax. 
- - <b>`data_files`</b> (list):  non-Python files that have to be added in the frozen  bundle. Each element of the list is a tuple containing the destination  path in the bundle and the source path of the data files. 
- - <b>`zipfile`</b> (str):  target path of the archive that will contain all the Python  packages and modules required by the frozen bundle.  If this parameter is set to `None`, the archive will be attached  to the target executable file. 
- - <b>`options`</b> (dict):  options used to configure and customize the bundle.  Supported values are listed below. 
- - <b>`version_info`</b> (dict):  version strings and other information can be attached  to the Windows executable file by configuring this dictionary.  Supported values are listed below. 
+ - <b>`console`</b> (список dict): пути к файлам Python, которые будут заморожены как исполняемые файлы консоли (CLI). См. ниже синтаксис целевого dict.
+ - <b>`windows`</b> (список dict): пути к файлам Python, которые будут заморожены как исполняемые файлы Windows (GUI). См. ниже синтаксис целевого dict.
+ - <b>`service`</b> (список dict): имена модулей и параметры для исполняемых файлов службы Windows. См. ниже синтаксис целевого dict.
+ - <b>`data_files`</b> (список): файлы, отличные от Python, которые необходимо добавить в замороженный пакет. Каждый элемент списка представляет собой кортеж, содержащий путь назначения в пакете и исходный путь к файлам данных.
+ - <b>`zipfile`</b> (str): целевой путь к архиву, который будет содержать все пакеты и модули Python, необходимые для замороженного пакета.  Если для этого параметра установлено значение «Нет», архив будет прикреплен к целевому исполняемому файлу.
+ - <b>`options`</b> (dict): параметры, используемые для настройки и настройки пакета.  Поддерживаемые значения перечислены ниже.
+ - <b>`version_info`</b> (dict): строки версии и другую информацию можно прикрепить к исполняемому файлу Windows, настроив этот словарь.  Поддерживаемые значения перечислены ниже.
 
-Target dictionaries (to be used for `console` or `windows`): 
- - <b>`script`</b> (str):  path of the Python module of the executable target. 
- - <b>`dest_base`</b> (str):  optional, directory and basename of the executable.  If a directory is contained, must be the same for all targets 
- - <b>`bitmap_resources`</b> (list):  list of 2-tuples `(id, pathname)`.  Bitmap files added in the bundle. 
- - <b>`icon_resources`</b> (list):  list of 2-tuples `(id, pathname)`  Icon used for the executable. 
- - <b>`other_resources`</b> (list):  list of 3-tuples `(resource_type, id, datastring)`  Other files added in the bundle. 
- - <b>`version_info`</b> (dict):  optionally specifies version information for a given binary.  Supported values are listed below. 
+Целевые словари (для использования в консоли или Windows):
+ - <b>`script`</b> (str): путь к модулю Python целевого исполняемого файла.
+ - <b>`dest_base`</b> (str): необязательно, каталог и базовое имя исполняемого файла.  Если каталог содержится, он должен быть одинаковым для всех целей.
+ - <b>`bitmap_resources`</b> (список): список кортежей из двух `(id, путь)`.  Растровые файлы добавлены в комплект.
+ - <b>`icon_resources`</b> (список): список из двух кортежей `(id, путь)` Значок, используемый для исполняемого файла.
+ - <b>`other_resources`</b> (список): список из трёх кортежей `(resource_type, id, datastring)` Другие файлы, добавленные в пакет.
+ - <b>`version_info`</b> (dict): дополнительно указывает информацию о версии для данного двоичного файла.  Поддерживаемые значения перечислены ниже.
 
-Target dictionaries (to be used for `service`): 
- - <b>`modules`</b> (list or str):  one or more Python module names that expose service  classes (classes with `_svc_name_`). 
- - <b>`cmdline_style`</b> (str):  service command-line behavior. Supported values are  `py2exe` (default; legacy py2exe-style install/remove command  handling), `pywin32` (uses `win32serviceutil.HandleCommandLine`; one  service class), and `custom` (calls module-level  `HandleCommandLine()`; one service module). 
- - <b>`other_target_keys`</b> (note):  same as `console`/`windows` targets (for example `dest_base`,  `icon_resources`, `other_resources`, `version_info`). 
+Целевые словари (будут использоваться для «сервиса»):
+ - <b>`modules`</b> (список или строка): одно или несколько имен модулей Python, которые предоставляют классы обслуживания (классы с `_svc_name_`).
+ - <b>`cmdline_style`</b> (str): поведение службы в командной строке. Поддерживаемые значения: py2exe (по умолчанию; устаревшая обработка команд установки и удаления в стиле py2exe), pywin32 (использует win32serviceutil.HandleCommandLine; один класс службы) и custom (вызывает HandleCommandLine() на уровне модуля; один служебный модуль).
+ - <b>`other_target_keys`</b> (примечание): то же, что и цели `console`/`windows` (например, `dest_base`, `icon_resources`, `other_resources`, `version_info`).
 
-Options (`options`): 
- - <b>`includes`</b> (list):  list of modules to include in the bundle. 
- - <b>`excludes`</b> (list):  list of modules to exclude from the bundle. 
- - <b>`packages`</b> (list):  list of packages to include in the bundle. Note: this option  is NOT recursive. Only the modules in the first level of the package will  be included. 
- - <b>`dll_excludes`</b> (list):  list of DLLs to exclude from the bundle. 
- - <b>`dist_dir`</b> (str):  target path of the bundle, default `dist`. 
- - <b>`compressed`</b> (int):  if `1`, create a compressed destination library archive. 
- - <b>`unbuffered`</b> (int):  if `1`, use unbuffered binary stdout and stderr. 
- - <b>`optimize`</b> (int):  optimization level of the Python files embedded in the bundle 
- - <b>`default`</b>:  `0`. Use `0` for `-O0`, `1` for `-O`, `2` for `-OO`. 
- - <b>`verbose`</b> (int):  verbosity level of the freezing process, default `0`. Supported  levels are `0--4`. 
- - <b>`bundle_files`</b> (int):  select how to bundle the Python and extension DLL files,  default `3` (all the files are copied alongside the frozen executable).  See below for further information on this parameter. 
+Опции («опции»):
+ - <b>`includes`</b> (список): список модулей, которые нужно включить в комплект.
+ - <b>`excludes`</b> (список): список модулей, которые нужно исключить из пакета.
+ - <b>`packages`</b> (список): список пакетов, которые нужно включить в комплект. Примечание: этот параметр НЕ является рекурсивным. Будут включены только модули первого уровня пакета.
+ - <b>`dll_excludes`</b> (список): список DLL, которые нужно исключить из пакета.
+ - <b>`dist_dir`</b> (str): целевой путь к пакету, по умолчанию `dist`.
+ - <b>`compressed`</b> (int): если `1`, создать сжатый архив целевой библиотеки.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - <b>`optimize`</b> (int): уровень оптимизации файлов Python, встроенных в пакет.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Bundle files levels (`bundle_files`): The py2exe runtime *can* use extension module by directly importing the from a zip-archive - without the need to unpack them to the file system. The bundle_files option specifies where the extension modules, the python DLL itself, and other needed DLLs are put. 
- - <b>`bundle_files == 3`</b>:  Extension modules, the Python DLL and other needed DLLs are  copied into the directory where the zipfile or the EXE/DLL files  are created, and loaded in the normal way. 
+Уровни файлов пакетов (`bundle_files`): среда выполнения py2exe *может* использовать модуль расширения, напрямую импортируя их из zip-архива - без необходимости распаковывать их в файловую систему. Параметр Bundle_files указывает, куда помещаются модули расширения, сама библиотека Python и другие необходимые библиотеки DLL.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-**WARNING**: the following values are not supported in Python 3.12+! See https://github.com/py2exe/py2exe/issues/225 for further details. 
+*Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 
- - <b>`bundle_files == 2`</b>:  Extension modules are put into the library ziparchive and loaded  from it directly. The Python DLL and any other needed DLLs are copied into the  directory where the zipfile or the EXE/DLL files are created, and loaded  in the normal way. 
- - <b>`bundle_files == 1`</b>:  Extension modules and the Python DLL are put into  the zipfile or the EXE/DLL files, and everything is loaded without unpacking to  the file system.  This does not work for some DLLs, so use with  caution. 
- - <b>`bundle_files == 0`</b>:  Extension modules, the Python DLL, and other needed DLLs are put  into the zipfile or the EXE/DLL files, and everything is loaded  without unpacking to the file system.  This does not work for  some DLLs, so use with caution. 
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version information (`version_info`): Information passed in this dictionary are attached to all frozen executables and displayed in their Properties -> Details view. If you need to specify different version information for each of the frozen binaries you should add `version_info` dictionary to each of the `windows` and `console` targets. Supported keys: 
- - <b>`version`</b> (str):  version number 
- - <b>`description`</b> (str):  - 
- - <b>`comments`</b> (str):  - 
- - <b>`company_name`</b> (str):  - 
- - <b>`copyright`</b> (str):  - 
- - <b>`trademarks`</b> (str):  - 
- - <b>`product_name`</b> (str):  - 
- - <b>`product_version`</b> (str):  - 
- - <b>`internal_name`</b> (str):  - 
- - <b>`private_build`</b> (str):  - 
- - <b>`special_build`</b> (str):  - 
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Support limitations: 
- - <b>``bundle_files <=2``</b>:  these settings do not work in Python 3.12+. See https://github.com/py2exe/py2exe/issues/225  for further details. In general, these values are supported only for packages in the Python  standard library. Issues occurring with external packages and lower values  of `bundle_files` will not be investigated. 
- - <b>``zipfile = None``</b>:  is not actively supported. Issues occurring when this  option is used will not be investigated. 
- - <b>`Please use CPython from python.org`</b>:  freezing from non-standard CPython installations,  such as `conda` or Windows Store is not supported. 
- - <b>``venv``</b>:  freezing from a virtual environment can cause unexpected errors for some  scripts. We encourage the use of Docker Windows Containers for isolating  the freezing environment. 
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+ - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 
 ---
 
-_This file was automatically generated via [lazydocs](https://github.com/ml-tooling/lazydocs)._
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.

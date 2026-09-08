@@ -1,7 +1,6 @@
 #!/usr/bin/python3.3
 # -*- coding: utf-8 -*-
-"""resources for py3exe
-"""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
 import collections
 import contextlib
 import ctypes
@@ -10,12 +9,7 @@ from . import _wapi
 
 @contextlib.contextmanager
 def UpdateResources(filename, *, delete_existing=False):
-    """A contextmanager which will update the resources in a Windows
-    executable file.
-
-    Returns a ResourceWriter object that has methods to add resource
-    types.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     hrscr = _wapi.BeginUpdateResourceW(filename, delete_existing)
     resource_writer = ResourceWriter(hrscr, filename)
     yield resource_writer
@@ -31,11 +25,7 @@ class ResourceWriter(object):
         self._strings = {}
 
     def add(self, *, type, name, value, langid=0):
-        """Write a resource to the exefile.
-        <type> is typically a RT_xxx value.
-        <name> can be a string or an integer.
-        <value> is a byte string containing the resource data.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         # I use keyword only args when I cannot remember the order of
         # positional arguments ;-)
         try:
@@ -49,17 +39,12 @@ class ResourceWriter(object):
             raise WindowsError(details) from None
 
     def add_string(self, key, value):
-        """Add a string to the string resource.  The strings will be
-        buffered until flush() is called.
-
-        Note: flush is called automatically in the UpdateResource
-        context manager.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         # Should we be able to specify a langid here? (see below)
         self._strings[key] = value
 
     def flush(self):
-        """Flush all buffered data."""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         # Strings in the string resources are grouped in groups of 16.
         groups = collections.defaultdict(dict)
         for i in sorted(self._strings):

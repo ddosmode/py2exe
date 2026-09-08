@@ -1,7 +1,6 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""setup script for py2exe.
-"""
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+# -*- кодировка: utf-8 -*-
+"""скрипт установки для py2exe."""
 
 import os
 import platform
@@ -38,11 +37,11 @@ def _is_debug_build():
 
 if _is_debug_build():
     macros = [("PYTHONDLL", python_dll_name_debug),
-##              ("PYTHONCOM", '\\"pythoncom%d%d_d.dll\\"' % sys.version_info[:2]),
+## ("PYTHONCOM", '\\"pythoncom%d%d_d.dll\\"' % sys.version_info[:2]),
               ("_CRT_SECURE_NO_WARNINGS", '1')]
 else:
     macros = [("PYTHONDLL", python_dll_name),
-##              ("PYTHONCOM", '\\"pythoncom%d%d.dll\\"' % sys.version_info[:2]),
+## ("PYTHONCOM", '\\"pythoncom%d%d.dll\\"' % sys.version_info[:2]),
               ("_CRT_SECURE_NO_WARNINGS", '1'),]
 
 macros.append(("Py_BUILD_CORE", '1'))
@@ -71,7 +70,7 @@ else:
         extra_link_args.append("-m32")
 
 if 0:
-    # enable this to debug a release build
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     extra_compile_args.append("/Od")
     extra_compile_args.append("/Z7")
     extra_link_args.append("/DEBUG")
@@ -137,15 +136,15 @@ run_w = Interpreter("py2exe.run_w",
                     extra_link_args=extra_link_args + subsys_windows,
                     )
 
-# The py2exe.resources name is special handled in BuildInterpreters;
-# it will not include the python version and platform name. The final
-# name will be 'resources.dll'.
+# Имя py2exe.resources специально обрабатывается в BuildInterpreters;
+# он не будет включать версию Python и имя платформы. Финал
+# имя будет 'resources.dll'.
 #
-# This is a resource only dll, so it needs no entry point.
+# Это dll, предназначенная только для ресурсов, поэтому ей не нужна точка входа.
 #
-# It seems that on SOME systems resources cannot be added correctly to
-# this DLL when there are no resources in the dll initially; so for
-# simplicity add the py2exe-icon.
+# Похоже, что в НЕКОТОРЫХ системах ресурсы не могут быть правильно добавлены в
+# эта DLL, когда изначально в ней нет ресурсов; так что для
+# простота: добавьте значок py2exe.
 resource_dll = Interpreter("py2exe.resources",
                            ["source/dll.c",
                             "source/icon.rc"],

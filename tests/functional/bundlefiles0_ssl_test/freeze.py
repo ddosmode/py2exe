@@ -5,5 +5,5 @@ freeze(console=[{ "script": "bundlefiles0_ssl_test.py"}],
         "bundle_files": 0,
         "excludes": ["tkinter"],
         "verbose": 4}},
-     #zipfile=None
+     #zipfile=Нет
      )

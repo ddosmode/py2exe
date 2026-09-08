@@ -2,7 +2,7 @@ import pefile
 
 
 def get_file_version_info(file_name):
-    """Borrowed from https://stackoverflow.com/questions/580924/how-to-access-a-files-properties-on-windows"""
+"""Заимствовано из https://stackoverflow.com/questions/580924/how-to-access-a-files-properties-on-windows."""
     pe = pefile.PE(file_name, fast_load=True)
     pe.parse_data_directories(directories=[pefile.DIRECTORY_ENTRY['IMAGE_DIRECTORY_ENTRY_RESOURCE']])
     res = {}

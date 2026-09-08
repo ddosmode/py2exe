@@ -1,25 +1,25 @@
-# -*- coding: latin-1 -*-
+# -*- кодировка: латиница-1 -*-
 ##
-##	   Copyright (c) 2000-2013 Thomas Heller
+## Copyright (c) 2000–2013 Томас Хеллер
 ##
-## Permission is hereby granted, free of charge, to any person obtaining
-## a copy of this software and associated documentation files (the
-## "Software"), to deal in the Software without restriction, including
-## without limitation the rights to use, copy, modify, merge, publish,
-## distribute, sublicense, and/or sell copies of the Software, and to
-## permit persons to whom the Software is furnished to do so, subject to
-## the following conditions:
+## Разрешение настоящим предоставляется бесплатно любому лицу, получившему
+## копию этого программного обеспечения и связанных с ним файлов документации (файл
+## «Программное обеспечение»), чтобы иметь дело с Программным обеспечением без ограничений, включая
+## без ограничений права на использование, копирование, изменение, объединение, публикацию,
+## распространять, сублицензировать и/или продавать копии Программного обеспечения, а также
+## разрешать лицам, которым предоставлено Программное обеспечение, делать это при условии, что
+## следующие условия:
 ##
-## The above copyright notice and this permission notice shall be
-## included in all copies or substantial portions of the Software.
+## Вышеупомянутое уведомление об авторских правах и настоящее уведомление о разрешении должны быть
+## включен во все копии или существенные части Программного обеспечения.
 ##
-## THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-## EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-## MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-## NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-## LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-## OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-## WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЯЕТСЯ «КАК ЕСТЬ», БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ,
+## ЯВНЫЕ ИЛИ ПОДРАЗУМЕВАЕМЫЕ, ВКЛЮЧАЯ, НО НЕ ОГРАНИЧИВАЯСЬ, ГАРАНТИИ
+## ТОРГОВАЯ ПРИГОДНОСТЬ, ПРИГОДНОСТЬ ДЛЯ ОПРЕДЕЛЕННОЙ ЦЕЛИ И
+## НЕНАРУШЕНИЕ ПРАВ. НИ ПРИ КАКИХ ОБСТОЯТЕЛЬСТВАХ АВТОРЫ ИЛИ ОБЛАДАТЕЛИ АВТОРСКИХ ПРАВ НЕ ДОЛЖНЫ БЫТЬ
+## ОТВЕТСТВЕННОСТЬ ЗА ЛЮБЫЕ ПРЕТЕНЗИИ, УБЫТКИ ИЛИ ДРУГУЮ ОТВЕТСТВЕННОСТЬ, КАК В ИСКАХ
+## КОНТРАКТА, ПРАВИЛЬНОГО ПРАВОНАРУШЕНИЯ ИЛИ ДРУГОГО ПРОИСХОЖДЕНИЯ, ВЫТЕКАЮЩЕГО ИЗ, В СВЯЗИ ИЛИ В СВЯЗИ
+## С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ ИЛИ ИСПОЛЬЗОВАНИЕМ ИЛИ ДРУГИМИ ДЕЛАМИ С ПРОГРАММНЫМ ОБЕСПЕЧЕНИЕМ.
 ##
 
 import struct
@@ -33,8 +33,7 @@ class VersionError(Exception):
     pass
 
 def w32_uc(text):
-    """Encode a string into UTF-16 little endian, ready to use for
-    win32 apis"""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     return text.encode("utf-16-le")
 
 class VS_FIXEDFILEINFO:
@@ -99,7 +98,7 @@ class VS_STRUCT:
         for item in self.items:
             data = data + item.tobytes()
 
-        wLength = len(data) + 4 # 4 bytes for wLength and wValueLength
+        wLength = len(data) + 4 # 4 байта для wLength и wValueLength
         wValueLength = len(value)
 
         return self.pack("hh", wLength, wValueLength, data)
@@ -119,12 +118,12 @@ class String(VS_STRUCT):
         (name, value) = name_value
         self.name = name
         if value:
-            self.value = value + '\000' # strings must be zero terminated
+            self.value = value + '\000' # строки должны заканчиваться нулем
         else:
             self.value = value
 
     def pack(self, fmt, len, vlen, data):
-        # ValueLength is measured in WORDS, not in BYTES!
+        # ValueLength измеряется в СЛОВАХ, а не в БАЙТАХ!
         return struct.pack(fmt, len, vlen//2) + data
 
     def get_value(self):
@@ -147,18 +146,18 @@ class StringFileInfo(VS_STRUCT):
         self.items = [StringTable(name, strings)]
 
 class Var(VS_STRUCT):
-    # MSDN says:
-    # If you use the Var structure to list the languages your
-    # application or DLL supports instead of using multiple version
-    # resources, use the Value member to contain an array of DWORD
-    # values indicating the language and code page combinations
-    # supported by this file. The low-order word of each DWORD must
-    # contain a Microsoft language identifier, and the high-order word
-    # must contain the IBM code page number. Either high-order or
-    # low-order word can be zero, indicating that the file is language
-    # or code page independent. If the Var structure is omitted, the
-    # file will be interpreted as both language and code page
-    # independent.
+    # MSDN говорит:
+    # Если вы используете структуру Var для перечисления языков,
+    # поддержка приложений или DLL вместо использования нескольких версий
+    # ресурсов, используйте элемент Value для хранения массива DWORD
+    # значения, указывающие комбинации языка и кодовой страницы
+    # поддерживается этим файлом. Младшее слово каждого DWORD должно
+    # содержат идентификатор языка Microsoft и слово старшего порядка
+    # должен содержать номер кодовой страницы IBM. Либо высшего порядка, либо
+    # младшее слово может быть нулевым, что указывает на то, что файл является языковым
+    # или независимо от кодовой страницы. Если структура Var опущена,
+    # файл будет интерпретироваться как язык, так и кодовая страница
+    # независимый.
     wType = 0
     name = "Translation"
 
@@ -179,7 +178,7 @@ class VarFileInfo(VS_STRUCT):
         return b""
 
 class VS_VERSIONINFO(VS_STRUCT):
-    wType = 0 # 0: binary data, 1: text data
+    wType = 0 # 0: двоичные данные, 1: текстовые данные
     name = "VS_VERSION_INFO"
 
     def __init__(self, version, items):

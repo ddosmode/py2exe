@@ -1,7 +1,6 @@
 #!/usr/bin/python3.3
 # -*- coding: utf-8 -*-
-"""dllfinder
-"""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
 from . import _wapi
 from . import pescan
 import collections
@@ -72,9 +71,7 @@ class DllFinder:
         self.import_extension(path)
 
     def import_extension(self, pyd, callers=None):
-        """Add an extension module and scan it for dependencies.
-
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         todo = {pyd} # todo contains the dlls that we have to examine
 
         while todo:
@@ -96,8 +93,7 @@ class DllFinder:
 
     @cached(cache=LFUCache(maxsize=128))
     def bind_image(self, imagename):
-        """Call BindImageEx and collect all dlls that are bound.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         if platform.architecture()[0]=="32bit":
             pth = ";".join([p for p in os.environ["PATH"].split(';') if not "intel64_win" in p])
         elif platform.architecture()[0]=="64bit":
@@ -162,18 +158,7 @@ class DllFinder:
         return result
 
     def determine_dll_type(self, imagename):
-        """determine_dll_type must be called with a full pathname.
-
-        For any dll in the Windows or System directory or any
-        subdirectory thereof return None, except when the dll binds to
-        or IS the current python dll. Additionally, return None for DLLs
-        that belong to either the Visual C++ redistributable or the
-        Universal C Runtime.
-
-        Return "DLL" when the image binds to the python dll, return
-        None when the image is in the windows or system directory or belongs
-        to a windows framework, return "EXT" otherwise.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         fnm = imagename.lower()
 
         if fnm == pydll.lower():
@@ -192,7 +177,7 @@ class DllFinder:
         return "DLL"
 
     def search_path(self, imagename, path):
-        """Find an image (exe or dll) on the PATH."""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         if imagename.lower() in self._loaded_dlls:
             return self._loaded_dlls[imagename.lower()]
         # SxS files (like msvcr90.dll or msvcr100.dll) are only found in
@@ -204,23 +189,17 @@ class DllFinder:
         return SearchPath(imagename, path)
 
     def all_dlls(self):
-        """Return a set containing all dlls that are needed,
-        except the python dll.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         return {dll for dll in self._dlls
                 if dll.lower() != pydll.lower()}
 
     def extension_dlls(self):
-        """Return a set containing only the extension dlls that are
-        needed.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         return {dll for dll in self._dlls
                 if "EXT" == self.determine_dll_type(dll)}
 
     def real_dlls(self):
-        """Return a set containing only the dlls that do not bind to
-        the python dll.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         return {dll for dll in self._dlls
                 if "DLL" == self.determine_dll_type(dll)
                 and dll.lower() != pydll.lower()}
@@ -228,9 +207,7 @@ class DllFinder:
 ################################################################
 
 class Scanner(ModuleFinder):
-    """A ModuleFinder subclass which allows to find binary
-    dependencies.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     def __init__(self, path=None, verbose=0, excludes=[], optimize=0, dll_excludes=[]):
         super().__init__(path=path, verbose=verbose, excludes=excludes, optimize=optimize)
         self.dllfinder = DllFinder()
@@ -258,7 +235,7 @@ class Scanner(ModuleFinder):
         return wrapper
 
     def add_bootcode(self, code):
-        """Add some code that the exe will execute when bootstrapping."""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         self._boot_code.append(code)
 
     def set_min_bundle(self, name, value):

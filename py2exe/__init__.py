@@ -1,7 +1,6 @@
 #!/usr/bin/python3,3
-# -*- coding: utf-8 -*-
-"""py2exe package
-"""
+# -*- кодировка: utf-8 -*-
+"""пакет py2exe"""
 DEPRECATION_MESSAGE_WIN32 = """
 py2exe `win32` wheels are provided without support. Issues experienced when
 using these wheels will not be investigated. Please upgrade your Python
@@ -194,7 +193,7 @@ def freeze(console=[], windows=[], service=[], data_files=None, zipfile="library
         target.exe_type = "service"
         target.version_info = _fixup_version_info(getattr(target, "version_info", None) or version_info)
 
-    # support the old dictionary structure with a global 'py2exe' key
+    # поддержка старой структуры словаря с помощью глобального ключа 'py2exe'
     if 'py2exe' in options:
         options = options['py2exe']
 

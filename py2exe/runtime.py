@@ -44,10 +44,8 @@ from importlib.machinery import DEBUG_BYTECODE_SUFFIXES, OPTIMIZED_BYTECODE_SUFF
 RT_MANIFEST = 24
 
 class Target:
-    """
-    A very loosely defined "target".  We assume either a "script" or "modules"
-    attribute.  Some attributes will be target specific.
-    """
+"""Очень расплывчато определенная «цель».  Мы предполагаем либо «скрипт», либо «модули».
+    атрибут.  Некоторые атрибуты будут зависеть от цели."""
     # A custom requestedExecutionLevel for the User Access Control portion
     # of the manifest for the target. May be a string, which will be used for
     # the 'requestedExecutionLevel' portion and False for 'uiAccess', or a tuple
@@ -85,10 +83,9 @@ class Target:
                 raise FileNotFoundError("Resource filename '%s' does not exist" % r_filename)
 
     def analyze(self, modulefinder):
-        """Run modulefinder on anything that is needed for this target.
+"""Запустите модуль поиска для всего, что необходимо для этой цели.
 
-        This may be the script or one or more modules.
-        """
+        Это может быть скрипт или один или несколько модулей."""
         if hasattr(self, "script"):
             modulefinder.run_script(self.script)
         elif hasattr(self, "modules"):
@@ -102,12 +99,11 @@ class Target:
 
 
 def fixup_targets(targets, default_attribute):
-    """Fixup the targets; and ensure that the default_attribute is
-    present.  Depending on the type of target, 'default_attribute' is
-    "script" or "module".
+"""Исправить цели; и убедитесь, что default_attribute имеет значение
+    присутствует.  В зависимости от типа цели атрибут default_attribute имеет значение
+    «скрипт» или «модуль».
 
-    Return a list of Target instances.
-    """
+    Вернуть список экземпляров Target."""
     if not targets:
         return []
     ret = []
@@ -127,10 +123,9 @@ def fixup_targets(targets, default_attribute):
 
 
 class Runtime(object):
-    """This class represents the Python runtime: all needed modules
-    and packages.  The runtime will be written to a zip.file
-    (typically named pythonxy.zip) that can be added to sys.path.
-    """
+"""Этот класс представляет среду выполнения Python: все необходимые модули.
+    и пакеты.  Среда выполнения будет записана в zip.file.
+    (обычно называется pythonxy.zip), который можно добавить в sys.path."""
 
     # modules which are always needed
     bootstrap_modules = {
@@ -240,8 +235,7 @@ class Runtime(object):
             raise SystemExit(-1)
 
     def build(self):
-        """Build everything.
-        """
+"""Постройте все."""
         options = self.options
 
         destdir = options.destdir
@@ -338,7 +332,7 @@ class Runtime(object):
         return exe_bytes
 
     def build_exe(self, target, exe_path, libname):
-        """Build the exe-file."""
+"""Создайте exe-файл."""
         print("Building '%s'." % exe_path)
 ##        logger.info("Building exe '%s'", exe_path)
 
@@ -397,8 +391,7 @@ class Runtime(object):
                 res_writer.add(type=res_type, name=res_name, value=res_data)
 
     def build_archive(self, libpath, delete_existing_resources=False):
-        """Build the archive containing the Python library.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         if self.options.bundle_files <= 1:
             # Add pythonXY.dll as resource into the library file
             #
@@ -535,9 +528,7 @@ class Runtime(object):
         arc.close()
 
     def copy_files(self, destdir):
-        """Copy files (pyds, dlls, depending on the bundle_files value,
-        into the dist resp. library directory.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         if self.options.libname is not None:
             libdir = os.path.join(destdir, os.path.dirname(self.options.libname))
         else:

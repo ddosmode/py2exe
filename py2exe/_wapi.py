@@ -1,4 +1,4 @@
-"""Some Windows api functions, data types, and constants."""
+"""Некоторые функции API Windows, типы данных и константы."""
 from ctypes import *
 
 _kernel32 = WinDLL("kernel32")
@@ -9,20 +9,20 @@ def BOOL_errcheck(result, func, args):
         return result
     raise WinError()
 
-## if __debug__:
-##     from ctypeslib.dynamic_module import include
-##     # 0x0502: Windows XP SP2
-##     # 0x0600: (Internet Explorer 6) shell32.dll version 6
-##     include("""\
-##     #define UNICODE
-##     #define NO_STRICT
-##     #define WINVER 0x0502
-##     #define _WIN32_WINNT 0x0502
-##     #define _WIN32_IE 0x0600
-##     #include <windows.h>
-##     #include <imagehlp.h>
+## если __debug__:
+## из импорта ctypeslib.dynamic_module включает
+## #0x0502: Windows XP SP2
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+##     включать("""\
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+## #define NO_STRICT
+## #define WINVER 0x0502
+## #define _WIN32_WINNT 0x0502
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 ##     """,
-##             persist=True)
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 WSTRING = c_wchar_p
 STRING = c_char_p
@@ -45,7 +45,7 @@ GetModuleFileNameW.restype = DWORD
 GetModuleFileNameW.argtypes = [HMODULE, LPWSTR, DWORD]
 BOOL = c_int
 
-# values for enumeration '_IMAGEHLP_STATUS_REASON'
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 BindOutOfMemory = 0
 BindRvaToVaFailed = 1
 BindNoRoomInImage = 2
@@ -66,7 +66,7 @@ BindForwarder32 = 16
 BindForwarder64 = 17
 BindForwarderNOT32 = 18
 BindForwarderNOT64 = 19
-_IMAGEHLP_STATUS_REASON = c_int # enum
+_IMAGEHLP_STATUS_REASON = c_int Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 CHAR = c_char
 PIMAGEHLP_STATUS_ROUTINE = WINFUNCTYPE(BOOL, _IMAGEHLP_STATUS_REASON, STRING, STRING, c_ulong, c_ulong)
 PSTR = STRING
@@ -74,9 +74,9 @@ BindImageEx = _imagehlp.BindImageEx
 BindImageEx.restype = BOOL
 BindImageEx.argtypes = [DWORD, PSTR, PSTR, PSTR, PIMAGEHLP_STATUS_ROUTINE]
 BindImageEx.errcheck = BOOL_errcheck
-BIND_ALL_IMAGES = 4 # Variable c_int
-BIND_CACHE_IMPORT_DLLS = 8 # Variable c_int
-BIND_NO_UPDATE = 2 # Variable c_int
+BIND_ALL_IMAGES = 4 Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+BIND_CACHE_IMPORT_DLLS = 8 Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+BIND_NO_UPDATE = 2 Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 LPCWSTR = WSTRING
 SearchPathW = _kernel32.SearchPathW
 SearchPathW.restype = DWORD
@@ -99,8 +99,8 @@ UpdateResourceA = _kernel32.UpdateResourceA
 UpdateResourceA.restype = BOOL
 UpdateResourceA.argtypes = [HANDLE, LPCSTR, LPCSTR, WORD, LPVOID, DWORD]
 UpdateResourceA.errcheck = BOOL_errcheck
-RT_STRING = 6 # Variable WSTRING
-RT_VERSION = 16 # Variable WSTRING
+RT_STRING = 6 Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+RT_VERSION = 16 Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 class tagVS_FIXEDFILEINFO(Structure):
     pass
 VS_FIXEDFILEINFO = tagVS_FIXEDFILEINFO
@@ -119,8 +119,8 @@ tagVS_FIXEDFILEINFO._fields_ = [
     ('dwFileDateMS', DWORD),
     ('dwFileDateLS', DWORD),
 ]
-VFT_APP = 1 # Variable c_long
-VOS_NT_WINDOWS32 = 262148 # Variable c_long
+VFT_APP = 1 Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+VOS_NT_WINDOWS32 = 262148 Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 BYTE = c_ubyte
-RT_ICON = 3 # Variable WSTRING
-RT_GROUP_ICON = 14 # Variable WSTRING
+RT_ICON = 3 Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+RT_GROUP_ICON = 14 Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.

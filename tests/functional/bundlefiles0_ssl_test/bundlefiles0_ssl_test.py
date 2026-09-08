@@ -1,26 +1,26 @@
 import socket
 import ssl
 
-# SET VARIABLES
+# УСТАНОВИТЬ ПЕРЕМЕННЫЕ
 packet = b"GET / HTTP/1.1\r\nHost: www.google.com\r\n\r\n"
 HOST, PORT = 'www.google.com', 443
 
-# CREATE SOCKET
+# СОЗДАТЬ СООКЕТ
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.settimeout(10)
 
-# WRAP SOCKET
+# ОБЕРТЫВАНИЕ РОЗЕТКИ
 wrappedSocket = ssl.wrap_socket(sock=sock)
 
-# CONNECT AND PRINT REPLY
+# ПОДКЛЮЧИТЬСЯ И НАпечатать ОТВЕТ
 wrappedSocket.connect((HOST, PORT))
 wrappedSocket.send(packet)
 rec = wrappedSocket.recv(15)
 
-# CLOSE SOCKET CONNECTION
+# ЗАКРЫТЬ РАЗЪЕМНОЕ СОЕДИНЕНИЕ
 wrappedSocket.close()
 
-# PRINT OUTPUT
+# ВЫВОД НА ПЕЧАТЬ
 
 out = rec.decode('utf-8')
 print("SSL test output: {}".format(out))

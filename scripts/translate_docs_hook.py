@@ -3,8 +3,7 @@
 
 Используется в .kilo/hooks.toml и ~/.config/kilo/hooks.toml.
 Проверяет git diff на изменённые .py и .md/.rst файлы, переводит их через
-scripts/translate_docs.py.
-"""
+scripts/translate_docs.py."""
 
 import json
 import os

@@ -1,4 +1,4 @@
-# This file is only used when BUILDING py2exe.
+# Этот файл используется только при ПОСТРОЕНИИ py2exe.
 import os, sys
 
 import logging as log
@@ -8,7 +8,7 @@ from setuptools.command.build_ext import build_ext
 from setuptools.dist import Distribution
 from setuptools.extension import Extension
 try:
-    # available since setuptools v69.0.0
+    # доступно начиная с setuptools v69.0.0
     from setuptools.modified import newer_group
 except ImportError:
     from setuptools.dep_util import newer_group
@@ -18,8 +18,8 @@ from sysconfig import get_platform
 
 class Interpreter(Extension):
     def __init__(self, *args, **kw):
-        # Add a custom 'target_desc' option, which matches CCompiler
-        # (is there a better way?
+        # Добавьте специальную опцию «target_desc», соответствующую CCompiler
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
         if "target_desc" in kw:
             self.target_desc = kw['target_desc']
             del kw['target_desc']
@@ -49,32 +49,32 @@ class BuildInterpreters(build_ext):
     def finalize_options(self):
         super().finalize_options()
         self.interpreters = self.distribution.interpreters
-        self.extensions = [Extension("unused", ["unused.c"])] # dummy extension needed to have a compiler
+        self.extensions = [Extension("unused", ["unused.c"])] Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
     def run(self):
-        # Copied from build_ext.run() except that we use
-        # self.interpreters instead of self.extensions and
-        # self.build_interpreters() instead of self.build_extensions()
+        # Скопировано из build_ext.run(), за исключением того, что мы используем
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
         if not self.interpreters:
             return
 
         super().run()
 
-        # If we are cross-compiling, init the compiler now (if we are not
-        # cross-compiling, init would not hurt, but people may rely on
-        # late initialization of compiler even if they shouldn't...)
+        # Если мы выполняем кросс-компиляцию, инициализируем компилятор сейчас (если мы не
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
         if os.name == 'nt' and self.plat_name != get_platform():
             self.compiler.initialize(self.plat_name)
 
-        # And make sure that any compile/link-related options (which might
-        # come from the command-line or from the setup script) are set in
-        # that CCompiler object -- that way, they automatically apply to
-        # all compiling and linking done here.
+        # И убедитесь, что все параметры, связанные с компиляцией/связыванием (которые могут
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        # этот объект CCompiler - таким образом, они автоматически применяются к
+        # Вся компиляция и компоновка выполняются здесь.
         if self.include_dirs is not None:
             self.compiler.set_include_dirs(self.include_dirs)
         if self.define is not None:
-            # 'define' option is a list of (name,value) tuples
+            Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
             for (name, value) in self.define:
                 self.compiler.define_macro(name, value)
         if self.undef is not None:
@@ -89,7 +89,7 @@ class BuildInterpreters(build_ext):
         if self.link_objects is not None:
             self.compiler.set_link_objects(self.link_objects)
 
-        # Now actually compile and link everything.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
         self.build_interpreters()
 
     def build_interpreters(self):
@@ -123,20 +123,20 @@ class BuildInterpreters(build_ext):
         else:
             log.info("building '%s' extension", ext.name)
 
-        # First, compile the source code to object files.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-        # XXX not honouring 'define_macros' or 'undef_macros' -- the
-        # CCompiler API needs to change to accommodate this, and I
-        # want to do one thing at a time!
+        # XXX не учитывает 'define_macros' или 'undef_macros' --
+        # API CCompiler необходимо изменить, чтобы учесть это, и я
+        # хочу делать что-то одно!
 
-        # Two possible sources for extra compiler arguments:
-        #   - 'extra_compile_args' in Extension object
-        #   - CFLAGS environment variable (not particularly
-        #     elegant, but people seem to expect it and I
-        #     guess it's useful)
-        # The environment variable should take precedence, and
-        # any sensible compiler will give precedence to later
-        # command line args.  Hence we combine them in order:
+        # Два возможных источника дополнительных аргументов компилятора:
+        # - 'extra_compile_args' в объекте расширения
+        # - переменная среды CFLAGS (не особо
+        # элегантно, но люди, похоже, этого ждут, и я
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        # Переменная среды должна иметь приоритет, и
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
         extra_compile_args = ext.extra_compile_args or []
 
         macros = ext.define_macros[:]
@@ -151,42 +151,42 @@ class BuildInterpreters(build_ext):
                                          extra_postargs=extra_compile_args,
                                          depends=ext.depends)
 
-        # XXX -- this is a Vile HACK!
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
         #
-        # The setup.py script for Python on Unix needs to be able to
-        # get this list so it can perform all the clean up needed to
-        # avoid keeping object files around when cleaning out a failed
-        # build of an extension module.  Since Distutils does not
-        # track dependencies, we have to get rid of intermediates to
-        # ensure all the intermediates will be properly re-built.
+        # Сценарий setup.py для Python в Unix должен иметь возможность
+        # получить этот список, чтобы он мог выполнить всю необходимую очистку
+        # избегайте хранения объектных файлов при очистке неудачного
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        # убедитесь, что все промежуточные элементы будут правильно перестроены.
         #
         self._built_objects = objects[:]
 
-        # Now link the object files together into a "shared object" --
-        # of course, first we have to figure out all the other things
-        # that go into the mix.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
         if ext.extra_objects:
             objects.extend(ext.extra_objects)
         extra_link_args = ext.extra_link_args or []
 
-        # Detect target language, if not provided
-##        language = ext.language or self.compiler.detect_language(sources)
+        # Определить целевой язык, если он не указан
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-        ## self.compiler.link_shared_object(
-        ##     objects, ext_path,
-        ##     libraries=self.get_libraries(ext),
-        ##     library_dirs=ext.library_dirs,
-        ##     runtime_library_dirs=ext.runtime_library_dirs,
-        ##     extra_postargs=extra_args,
-        ##     export_symbols=self.get_export_symbols(ext),
-        ##     debug=self.debug,
-        ##     build_temp=self.build_temp,
-        ##     target_lang=language)
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        ## runtime_library_dirs=ext.runtime_library_dirs,
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        ##export_symbols=self.get_export_symbols(ext),
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        ## build_temp=self.build_temp,
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-        # Hm, for Python 3.5 to link a shared library (instead of exe
-        # or pyd) we need to add /DLL to the linker arguments.
-        # Currently this is done in the setup script; should we do it
-        # here?
+        # Хм, чтобы Python 3.5 мог связать общую библиотеку (вместо exe
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+        # здесь?
 
         self.compiler.link(ext.target_desc,
                            objects, ext_path,
@@ -198,10 +198,10 @@ class BuildInterpreters(build_ext):
                            debug=self.debug)
 
     def build_extensions(self):
-        """Empty to skip actual extension compilation"""
+"""Пусто, чтобы пропустить фактическую компиляцию расширения."""
 
 
-    # -- Name generators -----------------------------------------------
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
     def get_ext_filename (self, inter_name):
         ext_path = inter_name.split('.')
@@ -216,7 +216,7 @@ class BuildInterpreters(build_ext):
 
 
 def InstallSubCommands():
-    """Adds our own sub-commands to build and install"""
+"""Добавляет наши собственные подкоманды для сборки и установки."""
     has_interpreters = lambda self: self.distribution.has_interpreters()
     buildCmds = [('build_interpreters', has_interpreters)]
     build.build.sub_commands.extend(buildCmds)

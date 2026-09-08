@@ -1,38 +1,38 @@
-Migrate from `distutils.setup` to `py2exe.freeze`
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 ===================
 
-`py2exe` v0.12.0.0 introduced a new `freeze` API for using the software and deprecated the former `distutils.setup` and `setup.py py2exe` interfaces. These interfaces have now been **removed**: the `build_exe` (`-m py2exe`) CLI was dropped in v0.13.0.0, and the `distutils` / `setup.py py2exe` interface was removed in v0.14.1.0 (see [PEP 632](https://peps.python.org/pep-0632), [the setuptools documentation](https://setuptools.pypa.io/en/latest/userguide/extension.html#final-remarks) and issue #127 for further information about this decision). The `freeze` API is now the only supported entry point.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-This document includes suggestion on how to migrate your existing freezing code to the new `freeze` API. Documentation for `freeze` is available [here](https://github.com/py2exe/py2exe/blob/master/docs/py2exe.freeze.md).
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-## Migration table
+#Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-| Feature                     | Old syntax                                         | New syntax                               |
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 |-----------------------------|----------------------------------------------------|------------------------------------------|
-| Run a freeze script         | `python setup.py py2exe`                           | `python freeze.py`                       |
-| Import statements           | `from distutils.core import setup`<br/>`import py2exe` | `from py2exe import freeze`          |
-| Freeze function             | `setup(console=...)`                               | `freeze(console=...)`                    |
-| Freeze Windows services     | `setup(service=...)`                               | `freeze(service=...)`                    |
-| Pass options                | `options = {"py2exe": {"packages": ...}}`          | `options = {"packages": ...}`            |
-| Use `includes` and similar  | `"includes": "os, time, requests"`                 | `"includes": ["os", "time", "requests"]` |
-| Pass version info           | N/A                                                | Use the `version_info` argument          |
-| `distutils` parameters      | `setup(maintainer=..., classifiers=...)`           | Do not pass these arguments to `freeze`  |
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+| Информация о версии Pass | Н/Д | Используйте аргумент `version_info` |
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-## Freezing script
+#Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Up to now, `py2exe` re-used the project `setup.py` script. With the `freeze` API you are free to use any Python script code you prefer. In this documentation and in the functional tests of this repository, we use `freeze.py` for this purpose, but this is a mere suggestion.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-## Import statement
+## Оператор импорта
 
-The `freeze` API has to be imported directly as in `from py2exe import freeze`. No need to import `distutils` or `setuptools` as before.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-## Migrate the function call
+## Переносим вызов функции
 
-A few details on how to go from a `setup` call to `freeze`:
+Несколько подробностей о том, как перейти от вызова `setup` к `freeze`:
 
-- The `console`, `windows`, `service`, `data_files`, and `zipfile` arguments can be used with `freeze` as in `setup`.
-- For `service`, use service targets with `modules` (module names exposing service classes) and optional `cmdline_style` (`py2exe`, `pywin32`, or `custom`).
-- The `option` dictionary can also be re-used as it is, but we encourage to drop the `py2exe` extra key as support for it will be removed in the future.
-- The `includes`, `excludes`, `packages`, and `dll_excludes` options should now be lists instead of comma-separated strings. The current syntax is still supported, but will be removed in the future.
-- The `version_info` dictionary supports writing some information in the Properties of the frozen executable. This feature, despite advertised, was not working with older versions of `py2exe`. If you intend to use this feature, please convert your freezing script to the new API.
-- All the other `distutils`-specific arguments, including but not limited to `name`, `author`, `version`, `url`, etc., are not supported by `freeze` and will raise `TypeError` if passed. Please remove these extra arguments from a call to `freeze` as `py2exe` is not designed to use them.
+- Аргументы «console», «windows», «service», «data_files» и «zipfile» можно использовать с «freeze», как и в «setup».
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Словарь `option` также можно использовать повторно, но мы рекомендуем отказаться от дополнительного ключа `py2exe`, так как его поддержка будет прекращена в будущем.
+- Параметры «includes», «excludes», «packages» и «dll_excludes» теперь должны представлять собой списки, а не строки, разделенные запятыми. Текущий синтаксис по-прежнему поддерживается, но в будущем он будет удален.
+- Словарь `version_info` поддерживает запись некоторой информации в свойствах замороженного исполняемого файла. Эта функция, несмотря на рекламу, не работала со старыми версиями py2exe. Если вы собираетесь использовать эту функцию, преобразуйте сценарий заморозки в новый API.
+- Все остальные аргументы, специфичные для distutils, включая, помимо прочего, `name`, `author`, `version`, `url` и т. д., не поддерживаются `freeze` и при их передаче вызывают `TypeError`. Пожалуйста, удалите эти дополнительные аргументы из вызова «freeze», поскольку «py2exe» не предназначен для их использования.

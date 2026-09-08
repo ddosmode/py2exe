@@ -1,12 +1,12 @@
-# This support script is executed as the entry point for ctypes com servers.
-# XXX Currently, this is always run as part of a dll.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 import sys
 import _ctypes
 
 if 1:
     ################################################################
-    # XXX Remove later!
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     import ctypes
     class LOGGER:
         def __init__(self):
@@ -17,28 +17,28 @@ if 1:
             else:
                 ctypes.windll.kernel32.OutputDebugStringA(text)
     sys.stderr = sys.stdout = LOGGER()
-##    sys.stderr.write("PATH is %s\n" % sys.path)
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 ################################################################
-# tell the win32 COM registering/unregistering code that we're inside
-# of an EXE/DLL
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 if not hasattr(sys, "frozen"):
-    # standard exes have none.
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     sys.frozen = _ctypes.frozen = 1
 else:
-    # com DLLs already have sys.frozen set to 'dll'
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     _ctypes.frozen = sys.frozen
 
-# Add some extra imports here, just to avoid putting them as "hidden imports"
-# anywhere else - this script has the best idea about what it needs.
-# (and hidden imports are currently disabled :)
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 #...
 
-# We assume that py2exe has magically set com_module_names
-# to the module names that expose the COM objects we host.
-# Note that here all the COM modules for the app are imported - hence any
-# environment changes (such as sys.stderr redirection) will happen now.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 try:
     com_module_names
 except NameError:
@@ -57,34 +57,34 @@ def get_classes(module):
             ]
 
 def build_class_map():
-    # Set _clsid_to_class in comtypes.server.inprocserver.
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     #
-    # This avoids the need to have registry entries pointing to the
-    # COM server class.
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     classmap = {}
     for mod in com_modules:
-        # dump each class
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
         for cls in get_classes(mod):
             classmap[cls._reg_clsid_] = cls
-    #print("build_class_map: ",classmap)
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     import comtypes.server.inprocserver
     comtypes.server.inprocserver._clsid_to_class = classmap
 build_class_map()
 del build_class_map
 
 def DllRegisterServer():
-    # Enumerate each module implementing an object
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     from comtypes.server.register import register
     for mod in com_modules:
-        # register each class
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
         for cls in get_classes(mod):
             register(cls)
 
 
 def DllUnregisterServer():
-    # Enumerate each module implementing an object
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     from comtypes.server.register import unregister
     for mod in com_modules:
-        # unregister each class
+        Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
         for cls in get_classes(mod):
             unregister(cls)

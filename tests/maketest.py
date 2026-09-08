@@ -1,5 +1,5 @@
-#!/usr/bin/python3.3
-# -*- coding: utf-8 -*-
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+# -*- кодировка: utf-8 -*-
 from __future__ import division, with_statement, absolute_import, print_function
 
 from py2exe.mf310 import ModuleFinder
@@ -40,7 +40,7 @@ def create_package(source, test_dir):
                 if modname.endswith(".__init__"):
                     modname = modname.rpartition(".__init__")[0]
                 modules.add(modname)
-##                print(modname)
+## печать(имя мода)
     finally:
         if ofi:
             ofi.close()
@@ -252,7 +252,7 @@ class Test_PEP328(_TestPackageBase):
 
 
 class SimpleTests(unittest.TestCase):
-    """Simple import tests on the Python standard library. """
+"""Простые тесты импорта стандартной библиотеки Python."""
 
     def test_os_path(self):
         mf = ModuleFinder()

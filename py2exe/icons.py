@@ -1,17 +1,16 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""win32 icons
-"""
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+# -*- кодировка: utf-8 -*-
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
 import itertools
 
-# John Hornick, "Icons in Win32", September 29, 1995
-# http://msdn.microsoft.com/en-us/library/ms997538.aspx
-# The Old New Thing, "The format of icon resources"
-# http://blogs.msdn.com/b/oldnewthing/archive/2012/07/20/10331787.aspx
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 from . import _wapi
 
-# dwBytesInRes is the size of the ICONIMAGE blob, dwImageOffset is the
-# offset in the file or resource where the ICONIMAGE blob starts.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 class ICONDIRENTRY(_wapi.Structure):
     _pack_ = 2
     _fields_ = [("bWidth", _wapi.BYTE),
@@ -24,15 +23,15 @@ class ICONDIRENTRY(_wapi.Structure):
                 ("dwImageOffset", _wapi.DWORD)]
 
 
-# An .ico file starts with an ICONDIRHEADER which contains idCount
-# ICONDIRENTRY structures that describe the one or more icon images in
-# the file.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 class ICONDIRHEADER(_wapi.Structure):
     _pack_ = 2
-    _fields_ = [("idReserved", _wapi.WORD), # Must be 0
-                ("idType", _wapi.WORD), # Should check that this is 1 for icons
-                ("idCount", _wapi.WORD), # Number os ICONDIRENTRYs to follow
-##                ("idEntries", ICONDIRENTRY * 0)
+    _fields_ = [("idReserved", _wapi.WORD), Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+                ("idType", _wapi.WORD), Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+                ("idCount", _wapi.WORD), Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
                 ]
 
     @classmethod
@@ -54,11 +53,11 @@ class ICONDIRHEADER(_wapi.Structure):
 
 ################################################################
 
-# The RT_GROUP_ICON resource in the exe/dll file is a GRPICONDIR
-# structure (see below). The GRPICONDIR structure contains a
-# GRPICONDIRENTRY for each icon, the nID members are the resource ids
-# of the corresponding RT_ICON resources which are ICONIMAGE
-# structures.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 class GRPICONDIRENTRY(_wapi.Structure):
     _pack_ = 2
@@ -69,15 +68,14 @@ class GRPICONDIRENTRY(_wapi.Structure):
                 ("wPlanes", _wapi.WORD),
                 ("wBitCount", _wapi.WORD),
                 ("dwBytesInRes", _wapi.DWORD),
-                # nID is the resource id of the RT_ICON resource
+                Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
                 ("nID", _wapi.WORD)]
 
 
 def CreateGrpIconDirHeader(iconheader, id_generator):
-    """Create a GRPICONDIRHEADER from an ICONDIRHEADER.
-    """
-    # ctypes doesn't support variable type structures; so we
-    # create one of the size we want NOW.
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     class GRPICONDIRHEADER(_wapi.Structure):
         _pack_ = 2
         _fields_ = [("idReserved", _wapi.WORD),
@@ -108,9 +106,7 @@ def CreateGrpIconDirHeader(iconheader, id_generator):
 ################################################################
 
 def BuildIcons(icon_resources):
-    """Create RT_ICON and RT_GROUP_ICON resources from a list of
-    (icon id, icon file) tuples.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     result = []
 
     id_generator = itertools.count(10)
@@ -122,7 +118,7 @@ def BuildIcons(icon_resources):
         grp_header = CreateGrpIconDirHeader(header, id_generator)
 
         for i, entry in enumerate(grp_header.idEntries):
-            # type, name, data
+            Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
             result.append((_wapi.RT_ICON, entry.nID, header.iconimages[i]))
 
         result.append((_wapi.RT_GROUP_ICON, resource_id, grp_header.tobytes()))
@@ -137,7 +133,7 @@ if __name__ == "__main__":
 
         print(hdr.iconimages)
 
-##        CreateGrpIconDirHeader(hdr, 42)
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
         print(hdr.idType, hdr.idCount)
 
         for entry in hdr.idEntries:

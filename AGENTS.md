@@ -1,4 +1,4 @@
-# AGENTS.md — py2exe (fork)
+# Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 ## Проект
 Форк [py2exe/py2exe](https://github.com/py2exe/py2exe) на аккаунте `ddosmode`.
@@ -7,13 +7,13 @@
 ## Правило перевода документации
 **Главное правило для любого fork:** при создании forkа любого кода/приложения необходимо автоматизировать перевод всех docstrings, комментариев и документации на русский язык.
 
-### GitHub Actions
+#Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 Файл `.github/workflows/translate-to-russian.yml` запускается при каждом пуше на основные ветки. Он:
 1. Устанавливает `deep_translator` и `googletrans`.
 2. Запускает `scripts/translate_docs.py` для перевода всех `.py`, `.md` и `.rst` файлов.
 3. Коммитит переведённые изменения с пометкой `[skip ci]`.
 
-### Kilo hooks
+### Килограммовые крючки
 Локальная конфигурация hooks находится в `~/.config/kilo/hooks.toml`.
 Hook `post-tool-call` (`scripts/translate_docs_hook.py`) автоматически переводит
 docstrings и комментарии в изменённых файлах через `scripts/translate_docs.py`.

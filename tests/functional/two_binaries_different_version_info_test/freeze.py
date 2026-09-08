@@ -3,7 +3,7 @@ import sys
 
 from py2exe import freeze
 
-sys.path.append(os.path.join("..", "..", "_helpers"))  # So that file version utils can be found when freezing.
+sys.path.append(os.path.join("..", "..", "_helpers"))  # Чтобы утилиты версии файла можно было найти при заморозке.
 
 
 freeze(

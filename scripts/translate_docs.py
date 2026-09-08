@@ -5,8 +5,7 @@
     python3 translate_docs.py [--dry-run] [директория]
 
 Флаг --dry-run выводит изменения без записи в файлы.
-Если директория не указана, используется текущая директория.
-"""
+Если директория не указана, используется текущая директория."""
 
 import ast
 import functools
@@ -154,7 +153,7 @@ def _init_translatepy():
 
 
 def _get_translator_unlocked():
-    """Возвращает функцию перевода, используя первый работоспособный переводчик.
+"""Возвращает функцию перевода, используя первый работоспособный переводчик.
 
     Порядок приоритета:
     1. GitHub Models API (GITHUB_TOKEN) — для GitHub Actions
@@ -163,8 +162,7 @@ def _get_translator_unlocked():
     4. argostranslate (офлайн)
     5. deep_translator (Google Translate, fallback)
     6. googletrans (fallback)
-    7. translatepy (fallback)
-    """
+    7. translatepy (fallback)"""
     candidates = [
         ('github-models', _init_github_models),
         ('openai', _init_openai),
@@ -211,11 +209,10 @@ def is_english(text):
 
 
 def get_docstrings(content):
-    """Возвращает список (start_line, end_line) для всех docstrings.
+"""Возвращает список (start_line, end_line) для всех docstrings.
 
     Использует ast для надёжного обнаружения docstrings на уровне модуля,
-    классов и функций.
-    """
+    классов и функций."""
     try:
         tree = ast.parse(content)
     except SyntaxError:
@@ -243,11 +240,10 @@ def get_docstrings(content):
 
 
 def get_comment_lines(content):
-    """Возвращает множество номеров строк, содержащих комментарии.
+"""Возвращает множество номеров строк, содержащих комментарии.
 
     Использует tokenize для точного обнаружения комментариев, игнорируя #
-    внутри строк.
-    """
+    внутри строк."""
     comment_lines = set()
     try:
         tokens = list(tokenize.generate_tokens(io.StringIO(content).readline))
@@ -271,11 +267,10 @@ def extract_indent_and_quotes(line):
 
 
 def translate_docstring_block(content, start, end):
-    """Переводит содержимое docstring блока.
+"""Переводит содержимое docstring блока.
 
     start и end — 1-индексированные номера строк.
-    Возвращает новый content с переведённым docstring.
-    """
+    Возвращает новый content с переведённым docstring."""
     lines = content.split('\n')
 
     indent, quotes = extract_indent_and_quotes(lines[start - 1])

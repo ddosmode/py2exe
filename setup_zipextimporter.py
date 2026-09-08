@@ -1,7 +1,6 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-"""setup script for py2exe.
-"""
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+# -*- кодировка: utf-8 -*-
+"""скрипт установки для py2exe."""
 
 import os
 import platform
@@ -38,11 +37,11 @@ def _is_debug_build():
 
 if _is_debug_build():
     macros = [("PYTHONDLL", python_dll_name_debug),
-##              ("PYTHONCOM", '\\"pythoncom%d%d_d.dll\\"' % sys.version_info[:2]),
+## ("PYTHONCOM", '\\"pythoncom%d%d_d.dll\\"' % sys.version_info[:2]),
               ("_CRT_SECURE_NO_WARNINGS", '1')]
 else:
     macros = [("PYTHONDLL", python_dll_name),
-##              ("PYTHONCOM", '\\"pythoncom%d%d.dll\\"' % sys.version_info[:2]),
+## ("PYTHONCOM", '\\"pythoncom%d%d.dll\\"' % sys.version_info[:2]),
               ("_CRT_SECURE_NO_WARNINGS", '1'),]
 
 macros.append(("Py_BUILD_CORE_MODULE", '1'))
@@ -57,7 +56,7 @@ if 'MSC' in sys.version:
     extra_compile_args.append("/DSTANDALONE")
 
 if 0:
-    # enable this to debug a release build
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     extra_compile_args.append("/Od")
     extra_compile_args.append("/Z7")
     extra_link_args.append("/DEBUG")

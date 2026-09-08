@@ -68,11 +68,7 @@ def init_finder(finder):
     finder.ignore("urlparse")
 
 def hook_pycparser(finder, module):
-    """pycparser needs lextab.py and yacctab.py which are not picked
-    up automatically.  Make sure the complete package is included;
-    otherwise the exe-files may create yacctab.py and lextab.py when
-    they are run.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.import_package_later("pycparser")
 
 def hook_pycparser__build_tables(finder, module):
@@ -86,7 +82,7 @@ def hook_pycparser_ply(finder, module):
     finder.ignore("ply")
 
 def hook_OpenSSL(finder, module):
-    """OpenSSL needs the cryptography package."""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.import_package_later("cryptography")
 
 def hook_certifi(finder, module):
@@ -221,7 +217,7 @@ def hook_passlib(finder, module):
         finder.recursion_depth_passlib = depth
 
 def import_psutil(finder, module):
-    """Exclude stuff for other operating systems."""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.excludes.append("_psutil_bsd")
     finder.excludes.append("_psutil_linux")
     finder.excludes.append("_psutil_osx")
@@ -230,29 +226,20 @@ def import_psutil(finder, module):
 
 def hook_PIL(finder, module):
     # c:\Python33-64\lib\site-packages\PIL
-    """Pillow loads plugins"""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     # Exclude python 2 imports
     finder.excludes.append("Tkinter")
     finder.import_package_later("PIL")
 
 def hook__socket(finder, module):
-    """
-    _socket.pyd uses the 'idna' encoding; and that requires
-    'unicodedata.pyd'.
-    Also 'imp' is required from Python 3.6
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.import_hook("encodings.idna")
     finder.import_hook("unicodedata")
     if sys.version_info >= (3,6,0) and sys.version_info < (3,12,0):
         finder.import_hook("imp")
 
 def hook_pyphen(finder, module):
-    """pyphen locates its dictionary files via importlib.resources, which
-    doesn't work inside a frozen library.zip.
-    This hook copies hyph_*.dic files next to the executable and patches
-    pyphen's dictionaries assignment via AST so it resolves to the correct
-    directory at runtime.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     import ast
     import pyphen
     import glob as _glob
@@ -304,38 +291,29 @@ def hook_pyreadline(finder, module):
     finder.ignore("startup")
 
 def hook_xml_etree_ElementTree(finder, module):
-    """ElementC14N is an optional extension. Ignore if it is not
-    found.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.ignore("ElementC14N")
 
 def hook_urllib_request(finder, module):
-    """urllib.request imports _scproxy on darwin
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.excludes.append("_scproxy")
 
 def hook_urllib3(finder, module):
-    """urllib3 embeds a copy of six that requires queue.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.import_hook("queue")
 
 def hook_pythoncom(finder, module):
-    """pythoncom is a Python extension module with .dll extension,
-    usually in the windows system directory as pythoncom3X.dll.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     import pythoncom
     finder.add_dll(pythoncom.__file__)
 
 def hook_pywintypes(finder, module):
-    """pywintypes is a Python extension module with .dll extension,
-    usually in the windows system directory as pywintypes3X.dll.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     import pywintypes
     finder.add_dll(pywintypes.__file__)
 
 def hook_charset_normalizer(finder, module):
-    """charset_normalizer.md imports charset_normalizer.md__mypyc.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     from packaging import version as pkgversion
     import charset_normalizer
 
@@ -347,20 +325,19 @@ def hook_charset_normalizer(finder, module):
         )
 
 def hook_win32com(finder, module):
-    """The win32com package extends it's __path__ at runtime.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.import_hook("pywintypes")
     finder.import_hook("pythoncom")
     import win32com
     module.__path__ = win32com.__path__
 
 def hook_win32api(finder, module):
-    """win32api.FindFiles(...) needs this."""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.import_hook("pywintypes")
     finder.import_hook("win32timezone")
 
 def hook_tkinter(finder, module):
-    """Recusively copy tcl and tk directories"""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     from tkinter import Tcl
     import _tkinter
     tcl_dir = os.path.normpath(Tcl().eval("info library"))
@@ -393,18 +370,10 @@ del tk_env_paths
 """)
 
 def hook_six(finder, module):
-    """six.py has an object 'moves'. This allows to import
-    modules/packages via attribute access under new names.
-
-    We install a fake module named 'six.moves' which simulates this
-    behaviour.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
 
     class SixImporter(type(module)):
-        """Simulate six.moves.
-
-        Import renamed modules when retrived as attributes.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
 
         __code__ = None
 
@@ -433,19 +402,11 @@ def hook_six(finder, module):
     finder._add_module("six.moves", m)
 
 def hook_infi(finder, module):
-    """Thw whole infi namespace package relies on pkg_resources for
-    loading modules and data files.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.import_hook("pkg_resources")
 
 def hook_matplotlib(finder, module):
-    """matplotlib requires data files in a 'mpl-data' subdirectory in
-    the same directory as the executable.
-
-    Also, matplotlib >= 3.7.0 moved .dlls to a matplotlib.libs directory,
-    requiring that we override the '_delvewheel_init_patch_1_3_3' function
-    so that those .dlls can be found in the same directory as the executable.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     import ast
     from packaging import version as pkgversion
 
@@ -503,8 +464,7 @@ def hook_matplotlib(finder, module):
 
 
 def hook_numpy(finder, module):
-    """numpy for Python 3 still tries to import some Python 2 modules;
-    exclude them."""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     from packaging import version as pkgversion
 
     # I'm not sure if we can safely exclude these:
@@ -562,11 +522,7 @@ def hook_numpy_random(finder, module):
     finder.ignore("tests")
 
 def hook_numpy_random_mtrand(finder, module):
-    """the numpy.random.mtrand module is an extension module and the
-    numpy.random module imports * from this module; define the list of
-    global names available to this module in order to avoid spurious
-    errors about missing modules.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     module.globalnames['RandomState'] = 1
     module.globalnames['beta'] = 1
     module.globalnames['binomial'] = 1
@@ -619,22 +575,15 @@ def hook_numpy_random_mtrand(finder, module):
     module.globalnames['zipf'] = 1
 
 def hook_numpy_distutils(finder, module):
-    """In a 'if sys.version_info[0] < 3:' block numpy.distutils does
-    an implicit relative import: 'import __config__'.  This will not
-    work in Python3 so ignore it.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.excludes.append("__config__")
 
 def hook_numpy_f2py(finder, module):
-    """ numpy.f2py tries to import __svn_version__.  Ignore when his fails.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.excludes.append("__svn_version__")
 
 def hook_numpy_core_umath(finder, module):
-    """the numpy.core.umath module is an extension module and the numpy module
-       imports * from this module; define the list of global names available
-       to this module in order to avoid spurious errors about missing
-       modules"""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     module.globalnames["add"] = 1
     module.globalnames["absolute"] = 1
     module.globalnames["arccos"] = 1
@@ -688,9 +637,7 @@ def hook_numpy_core_umath(finder, module):
     module.globalnames["true_divide"] = 1
 
 def hook_numpy_core_numerictypes(finder, module):
-    """the numpy.core.numerictypes module adds a number of items to itself
-       dynamically; define these to avoid spurious errors about missing
-       modules"""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     module.globalnames["bool_"] = 1
     module.globalnames["cdouble"] = 1
     module.globalnames["complexfloating"] = 1
@@ -759,14 +706,11 @@ def hook_pkg_resources(finder, module):
         finder.recursion_depth_pkg_resources = depth
 
 def hook_Cryptodome(finder, module):
-    """pycryptodomex distributes the same package as pycryptodome under a different package name"""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     hook_Crypto(finder, module)
 
 def hook_Crypto(finder, module):
-    """pycryptodome includes compiled libraries as if they were Python C extensions (as .pyd files).
-    However, they are not, as they cannot be imported by Python. Hence, those files should be treated
-    as .dll files. Furthermore, pycryptodome needs to be patched to import those libraries from an external
-    path, as their import mechanism will not work from the zip file nor from the executable."""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     # copy all the "pyd" files from pycryptodome to the bundle directory with the correct folder structure
     crypto_path = os.path.dirname(module.__loader__.path)
     from pathlib import Path
@@ -948,11 +892,7 @@ def hook_shapely(finder, module):
         finder.add_dll(dll_path)
 
 def hook__ssl(finder, module):
-    """
-    On Python 3.7 and above, _ssl.pyd requires additional dll's to load.
-    Based on code by Sebastian Krause: https://github.com/anthony-tuininga/cx_Freeze/pull/470
-    Apparently, even with the new DLL finder system, this hook is still needed on cp37-win32
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     if sys.version_info < (3, 7, 0):
         return
 
@@ -963,9 +903,7 @@ def hook__ssl(finder, module):
             finder.add_dll(dll_path)
 
 def hook_winrt(finder, module):
-    """winrt uses the `_winrt.__file__` attribute in its import chain. This attribute is,
-    however, not present when the module is imported from a .pyd file. This hook
-    recreates the missing attribute."""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.add_bootcode("""
 def patch_winrt():
     from winrt import _winrt
@@ -977,20 +915,12 @@ del patch_winrt
 """)
 
 def hook_wx(finder, module):
-    """
-    Avoid `wxPyDeprecationWarning: wx.lib.pubsub has been deprecated` and
-    `RuntimeError: Should not import this directly, used by pubsub.core if applicable`
-    when importing the full wx package
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     finder.excludes.append("wx.lib.pubsub")
 
 
 def hook_zmq(finder, module):
-    """pyzmq  >= 23.0.0 moved .dlls to a pzmq.libs directory,
-    requiring that we override the '_delvewheel_init_patchh_0_0_22' function
-    in so that those .dlls can be found in the same directory
-    as the executable.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     import ast
     import zmq
     from packaging import version as pkgversion
@@ -1024,11 +954,7 @@ def hook_zmq(finder, module):
 
 
 def hook_babel_localedata(finder, module):
-    """ babel >= 2.8.0 has a collection of .dat files in a babel.locale-data
-    directory. If this is included in the .zip file babel won't be able to find them.
-    This hook moves locale-data to the base directory and then sets the babel.localedata._dirname
-    attribute to find the directory at run time.
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
     import ast
     import babel
     from packaging import version as pkgversion

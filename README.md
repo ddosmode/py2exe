@@ -6,152 +6,152 @@
 
 ---
 
-py2exe for Python 3
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 ===================
 
-`py2exe` is a software to build standalone Windows executable programs from Python
-scripts. `py2exe` can build console executables and windows (GUI) executables.
-`py2exe` supports the Python versions* included in the [official development cycle](https://devguide.python.org/versions/).
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Development of `py2exe` is hosted here: https://github.com/py2exe/py2exe.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 
-Changes
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 ----------------------------
 
-The detailed changelog is published on [GitHub](https://github.com/py2exe/py2exe/releases/).
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.14.2.0:
-- Reintroduce Windows Service freezing in `freeze` with the `service=` argument
-- Deprecate `bundle_files<3` and `zipfile=None`. Both these options  will be removed
-  in the next major release. See discussion [#246](https://github.com/py2exe/py2exe/discussions/246)
-  for further details.
-- (Officially) deprecate target `ctypes_comdll`. This target will be removed
-  in the next major release. See issue [#217](https://github.com/py2exe/py2exe/issues/217)
-  for further details.
-- Fix hook for `scipy`.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- (Официально) объявляет устаревшей цель `ctypes_comdll`. Эта цель будет удалена
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.14.1.1:
-- Fix hook for `pyphen`
-- Add `packaging` to the runtime dependencies
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.14.1.0:
-- Add support for Python 3.14
-- Drop support for Python 3.9
-- Add hook for `pyphen`
-- Fixes for the `charset-normalizer`, `ctypes`, `pandas`, and `scipy` hooks
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Добавить поддержку Python 3.14.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Исправлены хуки charset-normalizer, ctypes, pandas и scipy.
 
-Version 0.14.0.0:
-- Add support for Python 3.12 and 3.13
-- Drop support for Python 3.8
-- Values of `bundle_files` lower than `3` are not supported in Python 3.12 and newer.
-  See issue [#225](https://github.com/py2exe/py2exe/issues/225) for further details
-- Fixes for the `matplotlib`, `numpy`, and `tkinter` hooks
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Значения Bundle_files ниже 3 не поддерживаются в Python 3.12 и новее.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Исправления для хуков matplotlib, numpy и tkinter.
 
-Version 0.13.0.2:
-- reintroduce ability to specify different version info for each of the frozen binaries
-- fix a bug in `MemoryModule.c:PerformBaseRelocation`
-- fix missing initialization settings for the runtime Python interpreter
-- add support for `setuptools` v72
-- fix the `matplotlib`, `numpy`, and `scipy` hooks
-- fix `py2exe` wheels build with `setuptools` v70.0.0
+Версия 0.13.0.2:
+- вновь ввести возможность указывать различную информацию о версии для каждого из замороженных двоичных файлов
+- исправить ошибку в `MemoryModule.c:PerformBaseRelocation`
+- исправить отсутствующие настройки инициализации для интерпретатора Python во время выполнения
+- добавить поддержку `setuptools` v72
+- исправьте хуки matplotlib, numpy и scipy.
+- исправить сборку колес `py2exe` с помощью `setuptools` v70.0.0
 
-Version 0.13.0.1:
-- improved the hook for `pkg_resources` to detect its vendored content automatically
-- the `matplotlib` hook now does not exclude `wx` automatically
-- adapted the hook for `matplotlib` to support their use of `delvewheel`
-- adapted the hooks for `numpy` and `pandas` to support the new `.libs` location
+Версия 0.13.0.1:
+- улучшен хук для `pkg_resources` для автоматического обнаружения его содержимого, предоставленного поставщиком.
+- хук `matplotlib` теперь не исключает `wx` автоматически
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- адаптировали хуки для `numpy` и `pandas` для поддержки нового местоположения `.libs`
 
-Version 0.13.0.0:
-- Add support for Python 3.11
-- Drop support for Python 3.7
-- Drop support for `win32` wheels
-  - `win32` wheels are still built and shipped but are provided untested. Issues
-    experienced when using these wheels will not be investigated.
-    See https://github.com/py2exe/py2exe/discussions/157 for further information.
-- Remove `build_exe` command line interface. Please use the `py2exe.freeze` API.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Добавить поддержку Python 3.11.
+- Прекращение поддержки Python 3.7
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+  - Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.12.0.2:
-- Support `scipy` versions newer than 1.9.2.
-- Fixed documentation for the `py2exe.freeze` API.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.12.0.1:
-- Fixed an issue that prevented builds via the deprecated `setup.py` API.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.12.0.0:
-- Introduce the new `py2exe.freeze` API. Documentation can be found [here](https://github.com/py2exe/py2exe/blob/master/docs/py2exe.freeze.md).
-- Use of the `setup.py py2exe` command and of `distutils` is deprecated as per PEP 632. Both
-  these interfaces will be removed in the next major release. See [here](https://github.com/py2exe/py2exe/blob/master/docs/migration.md)
-  for a migration guide.
-- Add two hooks to fix the bundling of `winrt` and `passlib`.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.11.1.1:
-- The log file for windows apps is now stored in `%APPDATA%` by default
-- `ModuleFinder` now raises an explicit error if a required module is in `excludes`
-- Restore hook functionality for `pkg_resources`
-- The `Stderr.write` method used for windows apps now returns the number of written bytes
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.11.1.0:
-- Drop support for Python 3.6
-- Include package metadata in the bundle archive (to be used by e.g. `importlib.metadata`)
-- Fixed a bug that prevented to use the `optimize` option when `six` was in the bundle
-- Fixed a bug that ignored the `optimize` flag for some packages
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.11.0.1:
-- Show again relative paths in Tracebacks that happen from the frozen application
-  (#12 and #114)
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.11.0.0:
-- New module finder `mf310` written as a wrapper around CPython `modulefinder.ModuleFinder`
-- Add support for Python 3.10
-- New hook for `scipy`
-- `zipextimporter` can now be built as a standalone extension via its own setup script
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.10.4.1:
-- `ModuleFinder`: add support for the `pkg_resources.extern.VendorImporter` loader
-- New hooks for `pkg_resources` and `infi`
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.10.4.0:
-- `zipextimporter` supports external modules that use multi-phase initialization (PEP 489)
-- New hook for `selenium`
-- `dllfinder` provides a new method to add data files in the zip archive
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.10.3.1:
-- New hook for `pycryptodomex`
-- `ModuleFinder`: respect excludes list in `import_package`
-- Updated hook for `matplotlib` >= 3.4.0
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.10.3.0:
-- New hook for supporting `matplotlib` 3.2 and higher.
-- Fix for including implicit namespace packages as per PEP420.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.10.2.1:
-- Patch `MyLoadLibrary` to support `ssl` with `bundle_files=0`.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.10.2.0:
-- New module finder with support for implicit namespace packages (PEP 420).
-- `DLLFinder` automatically excludes VC++ redist and Windows CRT DLLs from bundles.
-- Several fixes for bundling software with `bundle_files<=2` (only the standard library
-  is supported, other dependencies may or may not work).
-- New hooks for `pycryptodome` and `shapely`.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.10.1.0:
-- Add support for Python 3.9.
-- Drop support for Python 3.5.
-- New hooks for `urllib3` and `pandas`.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
-Version 0.10.0.2 (from versions 0.9.x):
-- Introduce compatibility with Python 3.5, 3.6, 3.7, and 3.8.
-- Drop compatibility with Python 3.4 and earlier.
-- New or updated hooks for `certifi`, `numpy`, `tkinter`, `socket`,
-`ssl`, and `six`.
-- `build_exe`: the `zipfile=None` option has been removed.
-- `runtime`: the Python interpreter DLL is no longer altered before
-being inserted in the executable bundle.
-- Several bugfixes, better error messages.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+- Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 
 
-Installation
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
 ------------
 
 ```pip install py2exe```

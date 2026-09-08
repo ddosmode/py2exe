@@ -5,34 +5,7 @@ import importlib.util
 from importlib.machinery import DEBUG_BYTECODE_SUFFIXES, OPTIMIZED_BYTECODE_SUFFIXES
 
 class Module:
-    """Represents a Python module.
-
-    These attributes are set, depending on the loader:
-
-    __code__: the code object provided by the loader; can be None.
-
-    __file__: The path to where the module data is stored (not set for
-              built-in or frozen modules).
-
-    __globalnames__: a set containing the global names that are defined.
-
-    __loader__: The loader for this module.
-
-    __name__: The name of the module.
-
-    __optimize__: Optimization level for the module's byte-code.
-
-    __package__: The parent package for the module/package. If the
-                 module is top-level then it has a value of the empty
-                 string.
-
-    __path__: A list of strings specifying the search path within a
-              package. This attribute is not set on modules.
-
-    __source__: a property that gives access to the source code (if
-                the __loader__ provides it, not for builtin or
-                extension modules)
-    """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
 
     def __init__(self, name, file=None, path=None, optimize=0):
         self.__name__ = name
@@ -85,7 +58,7 @@ class Module:
 
     @property
     def __dest_file__(self):
-        """Gets the destination path for the module that will be used at compilation time."""
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         import os
 
         if self.__optimize__:
@@ -133,32 +106,20 @@ class ModuleFinder(PythonMF):
         return m
 
     def ignore(self, name):
-        """If the module or package with the given name is not found,
-        don't record this as an error.  If is is found, however,
-        include it.
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         self.ignores.append(name)
 
     def import_package(self, name):
-        """Import a complete package.
-
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         self.import_hook(name,  None, ["*"])
 
     def missing(self):
-        """Return a set of modules that appear to be missing. Use
-        any_missing_maybe() if you want to know which modules are
-        certain to be missing, and which *may* be missing.
-
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         missing, _ = self.any_missing_maybe()
         return missing
 
     def report_missing(self):
-        """Print a report to stdout, listing those modules that are
-        missing.
-
-        """
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
         missing, maybe = self.any_missing_maybe()
         print()
         print("  %-35s" % ("%d missing Modules" % len(missing)))

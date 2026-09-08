@@ -1,36 +1,34 @@
-"""
-BSD 3-Clause License
+"""Лицензия BSD, 3 пункта
 
-Copyright (c) 2008-2011, AQR Capital Management, LLC, Lambda Foundry, Inc. and PyData Development Team
-All rights reserved.
+Авторские права (c) 2008–2011 гг., AQR Capital Management, LLC, Lambda Foundry, Inc. и группа разработчиков PyData.
+Все права защищены.
 
-Copyright (c) 2011-2020, Open source contributors.
+Авторские права (c) 2011–2020, Участники с открытым исходным кодом.
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
+Распространение и использование в исходной и двоичной формах, с или без
+Модификация допускается при соблюдении следующих условий:
 
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
+* При повторном распространении исходного кода должно сохраняться указанное выше уведомление об авторских правах.
+  список условий и следующий отказ от ответственности.
 
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
+* При распространении в двоичной форме должно воспроизводиться указанное выше уведомление об авторских правах.
+  этот список условий и следующий отказ от ответственности в документации
+  и/или другие материалы, прилагаемые к раздаче.
 
-* Neither the name of the copyright holder nor the names of its
-  contributors may be used to endorse or promote products derived from
-  this software without specific prior written permission.
+* Ни имя правообладателя, ни имена его
+  участники могут быть использованы для одобрения или продвижения продуктов, полученных на основе
+  это программное обеспечение без специального предварительного письменного разрешения.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-"""
+ДАННОЕ ПРОГРАММНОЕ ОБЕСПЕЧЕНИЕ ПРЕДОСТАВЛЕНО ОБЛАДАТЕЛЯМИ АВТОРСКИХ ПРАВ И УЧАСТНИКАМИ «КАК ЕСТЬ»
+И ЛЮБЫЕ ЯВНЫЕ ИЛИ ПОДРАЗУМЕВАЕМЫЕ ГАРАНТИИ, ВКЛЮЧАЯ, НО НЕ ОГРАНИЧИВАЯСЬ,
+ПОДРАЗУМЕВАЕМЫЕ ГАРАНТИИ ТОВАРНОЙ ГОДНОСТИ И ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННОЙ ЦЕЛИ
+ОТКАЗАН. НИ ПРИ КАКИХ ОБСТОЯТЕЛЬСТВАХ ОБЛАДАТЕЛЬ АВТОРСКИХ ПРАВ ИЛИ УЧАСТНИКИ НЕ НЕСУТ ОТВЕТСТВЕННОСТИ
+ДЛЯ ЛЮБЫХ ПРЯМЫХ, КОСВЕННЫХ, СЛУЧАЙНЫХ, СПЕЦИАЛЬНЫХ, ПРИМЕРНЫХ ИЛИ КОСВЕННЫХ
+УЩЕРБ (ВКЛЮЧАЯ, НО НЕ ОГРАНИЧИВАЯСЬ), ПРИОБРЕТЕНИЕ ТОВАРА-ЗАМЕНИТЕЛЯ ИЛИ
+УСЛУГИ; ПОТЕРЯ ИСПОЛЬЗОВАНИЯ, ДАННЫХ ИЛИ ПРИБЫЛИ; ИЛИ ПЕРЕРЫВ БИЗНЕСА) ОДНАКО
+ПРИЧИНЕННАЯ И ПО ЛЮБОЙ ТЕОРИИ ОТВЕТСТВЕННОСТИ, БЫ В ДОГОВОРЕ, СТРОГО ОТВЕТСТВЕННОСТЬ,
+ИЛИ ПРАВОНАРУШЕНИЕ (ВКЛЮЧАЯ НЕБРЕЖНОСТЬ ИЛИ ДРУГОЕ), ВОЗНИКАЮЩЕЕ ЛЮБЫМ СПОСОБОМ ИСПОЛЬЗОВАНИЯ
+ЭТОГО ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ, ДАЖЕ ЕСЛИ ПРЕДУПРЕЖДЕНО О ВОЗМОЖНОСТИ ТАКОГО ПОВРЕЖДЕНИЯ."""
 
 import pandas as pd
 import pandas.core.common as com

@@ -1,4 +1,4 @@
-# Source: https://stackoverflow.com/a/2521650
+# Источник: https://stackoverflow.com/a/2521650
 
 from zope.interface import Interface, Attribute, implementer
 from zope.interface.verify import verifyObject, verifyClass

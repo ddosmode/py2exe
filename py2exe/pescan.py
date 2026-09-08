@@ -1,13 +1,6 @@
-#!/usr/bin/python3.3
-# -*- coding: utf-8 -*-
-"""
-Methods used to determine the libraries linked by binary files (e.g. .pyd and .dll)
-
-This work was derived from code originally licensed under the MIT license and owned by:
-Copyright (c) 2004-2019 Ero Carrera.
-Copyright (C) 2016 Deloitte Argentina.
-
-"""
+Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+# -*- кодировка: utf-8 -*-
+"""Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know."""
 
 import pefile
 
@@ -22,8 +15,8 @@ def find_loaded_dlls(path):
 
     dllset = set()
 
-    # https://github.com/erocarrera/pefile/blob/wiki/UsageExamples.md#dumping-all-the-information-1
-    # https://github.com/erocarrera/pefile/blob/master/pefile.py#L2495
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     pe = pefile.PE(path, fast_load=True)
     pe.parse_data_directories(directories=[
         pefile.DIRECTORY_ENTRY['IMAGE_DIRECTORY_ENTRY_IMPORT'],
@@ -33,7 +26,7 @@ def find_loaded_dlls(path):
         import_dllnames_only=True,
         )
 
-    # https://github.com/codexgigassys/codex-backend/blob/master/src/Modules/PEFileModule.py
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     try:
         imports = pe.DIRECTORY_ENTRY_IMPORT
     except AttributeError:
@@ -43,7 +36,7 @@ def find_loaded_dlls(path):
         dll_str = decode_bytes_to_string(entry.dll)
         dllset.add(dll_str)
 
-    # https://github.com/codexgigassys/codex-backend/blob/master/src/PlugIns/PE/ExportsPlug.py
+    Error 500 (Server Error)!!1500.That’s an error.There was an error. Please try again later.That’s all we know.
     try:
         exports = pe.DIRECTORY_ENTRY_EXPORT
     except AttributeError:
