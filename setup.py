@@ -161,9 +161,9 @@ if __name__ == "__main__":
     cmdclass = {'build_interpreters': BuildInterpreters}
 
     setup(name="py2exe",
-          version=open("py2exe/version.py").read().split("'")[1],
+          version=open("py2exe/version.py", encoding="utf-8").read().split("'")[1],
           description="Build standalone executables for Windows",
-          long_description=open("README.md").read(),
+          long_description=open("README.md", encoding="utf-8").read(),
           long_description_content_type="text/markdown",
           author="Thomas Heller",
           author_email="theller@ctypes.org",
